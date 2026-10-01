@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>일기 수정</h1>
+
+<form method="POST" class="form-card">
+
+    <label>날짜</label>
+
+    <input
+        type="date"
+        name="diary_date"
+        value="{{ diary.diary_date.strftime('%Y-%m-%d') }}"
+        required
+    >
+
+
+    <label>제목</label>
+
+    <input
+        type="text"
+        name="title"
+        value="{{ diary.title }}"
+        required
+    >
+
+
+    <label>오늘의 기분</label>
+
+    <select name="mood">
+
+        {% for mood in [
+            "😊 행복",
+            "🙂 좋음",
+            "😐 보통",
+            "😢 슬픔",
+            "😡 화남"
+        ] %}
+
+        <option
+            value="{{ mood }}"
+            {% if diary.mood == mood %}
+            selected
+            {% endif %}
+        >
+            {{ mood }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+
+    <label>행복 점수</label>
+
+    <input
+        type="number"
+        name="happiness_score"
+        value="{{ diary.happiness_score }}"
+        min="1"
+        max="10"
+        required
+    >
+
+
+    <label>내용</label>
+
+    <textarea
+        name="content"
+        rows="10"
+        required
+    >{{ diary.content }}</textarea>
+
+
+    <button type="submit">
+        수정 완료
+    </button>
+
+</form>
+
+{% endblock %}

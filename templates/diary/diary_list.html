@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block title %}
+Diary - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/diary.css'
+    ) }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="diary-page">
+
+
+    <!-- =====================================================
+         Header
+         ===================================================== -->
+
+    <section class="page-header diary-header">
+
+        <div class="page-header-content">
+
+            <span class="page-kicker">
+                RECORD · DIARY
+            </span>
+
+            <h1 class="page-title">
+                Diary
+            </h1>
+
+            <p class="page-description">
+                오늘의 감정과 생각,
+                하루의 작은 이야기들을 남겨보세요.
+            </p>
+
+        </div>
+
+
+        <!-- 감성 일러스트 -->
+
+        <div class="hero-illustration">
+
+            <div class="illustration-shell">
+
+                <div class="diary-book">
+
+                    <div class="diary-book-lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+
+
+                <div class="diary-heart-badge">
+                    ♡
+                </div>
+
+
+                <div class="diary-mini-note">
+                    mood note
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="page-header-side">
+
+            <a
+                href="{{ url_for('diary.diary_add') }}"
+                class="page-header-button"
+            >
+                + 일기 작성
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         검색 / 필터
+         ===================================================== -->
+
+    <div class="diary-filter-section">
+
+        <form
+            method="GET"
+            class="diary-filter-bar"
+        >
+
+            <input
+                type="search"
+                name="q"
+                value="{{ keyword or '' }}"
+                placeholder="제목이나 내용으로 검색..."
+            >
+
+
+            <select name="mood">
+
+                <option
+                    value="all"
+                    {% if selected_mood == "all" %}
+                    selected
+                    {% endif %}
+                >
+                    모든 기분
+                </option>
+
+
+                {% for mood in [
+                    "😊 행복",
+                    "🙂 좋음",
+                    "😐 보통",
+                    "😢 슬픔",
+                    "😡 화남"
+                ] %}
+
+                <option
+                    value="{{ mood }}"
+                    {% if selected_mood == mood %}
+                    selected
+                    {% endif %}
+                >
+                    {{ mood }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+
+            {% if only_important %}
+
+            <input
+                type="hidden"
+                name="important"
+                value="1"
+            >
+
+            {% endif %}
+
+
+            <button
+                type="submit"
+                class="diary-search-button"
+            >
+                검색
+            </button>
+
+
+            <a
+                href="{{ url_for('diary.diary_list') }}"
+                class="diary-reset-button"
+            >
+                초기화
+            </a>
+
+        </form>
+
+
+        {% if only_important %}
+
+        <a
+            href="{{ url_for(
+                'diary.diary_list',
+                q=keyword,
+                mood=selected_mood
+            ) }}"
+            class="diary-important-filter active"
+        >
+            ★ 전체 기록 보기
+        </a>
+
+        {% else %}
+
+        <a
+            href="{{ url_for(
+                'diary.diary_list',
+                q=keyword,
+                mood=selected_mood,
+                important=1
+            ) }}"
+            class="diary-important-filter"
+        >
+            ☆ 중요 기록만
+        </a>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =====================================================
+         Diary Cards
+         ===================================================== -->
+
+    <section class="diary-grid">
+
+        {% for diary in diaries %}
+
+        <a
+            href="{{ url_for(
+                'diary.diary_detail',
+                diary_id=diary.id
+            ) }}"
+            class="diary-card"
+        >
+
+            <span class="diary-card-date">
+                {{ diary.diary_date }}
+            </span>
+
+
+            {% if diary.id in important_ids %}
+
+            <span class="diary-important-badge">
+                ★ 중요 기록
+            </span>
+
+            {% endif %}
+
+
+            <span class="diary-card-mood">
+                {{ diary.mood }}
+            </span>
+
+
+            <h3 class="diary-card-title">
+                {{ diary.title }}
+            </h3>
+
+
+            <div class="diary-score-wrap">
+
+                <span class="diary-score">
+                    행복 점수
+                    {{ diary.happiness_score }} / 10
+                </span>
+
+
+                <div class="diary-score-bar">
+
+                    <div
+                        class="
+                            diary-score-fill
+                            score-{{ diary.happiness_score }}
+                        "
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        {% else %}
+
+        <div class="diary-empty">
+
+            {% if only_important %}
+
+                아직 중요 기록으로 지정한
+                일기가 없습니다.
+
+            {% else %}
+
+                아직 작성한 일기가 없습니다.
+
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+</div>
+
+{% endblock %}

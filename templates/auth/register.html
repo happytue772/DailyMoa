@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>회원가입 - DailyMoa</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/auth.css'
+        ) }}"
+    >
+</head>
+
+
+<body class="auth-body">
+
+    <!-- 배경 Glow -->
+
+    <div
+        class="
+            auth-background-glow
+            auth-glow-left
+        "
+    ></div>
+
+    <div
+        class="
+            auth-background-glow
+            auth-glow-right
+        "
+    ></div>
+
+
+    <main class="auth-shell">
+
+
+        <!-- =====================================================
+             Left Branding
+             ===================================================== -->
+
+        <section class="auth-hero">
+
+            <!-- Brand -->
+
+            <div class="auth-brand">
+
+                <div class="auth-brand-badge">
+                    D
+                </div>
+
+
+                <div class="auth-brand-text">
+
+                    <h1>
+                        DailyMoa
+                    </h1>
+
+                    <p>
+                        하루를 차곡차곡 모아가는
+                        나만의 기록 공간
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Main Copy -->
+
+            <div class="auth-hero-copy">
+
+                <span class="auth-kicker">
+                    DAILYMOA · YOUR FIRST RECORD
+                </span>
+
+
+                <h2>
+                    오늘부터<br>
+
+                    <em>
+                        나의 하루를 모아보세요.
+                    </em>
+                </h2>
+
+
+                <p>
+                    해야 할 일과 일정,
+                    오늘의 감정과 소중한 기록까지.<br>
+
+                    DailyMoa와 함께
+                    나만의 하루를 하나씩 쌓아보세요.
+                </p>
+
+            </div>
+
+
+            <!-- Decorative Artwork -->
+
+            <div class="auth-hero-visual">
+
+                <div
+                    class="
+                        hero-line
+                        hero-line-1
+                    "
+                ></div>
+
+
+                <div
+                    class="
+                        hero-line
+                        hero-line-2
+                    "
+                ></div>
+
+
+                <div class="hero-note-card">
+
+                    <span>
+                        FIRST NOTE
+                    </span>
+
+                    <strong>
+                        오늘의 시작도<br>
+                        하나의 기록이 됩니다.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             Register Panel
+             ===================================================== -->
+
+        <section class="auth-panel">
+
+            <div class="auth-panel-inner">
+
+
+                <!-- Header -->
+
+                <div class="auth-panel-head">
+
+                    <div class="auth-mini-badge">
+                        회원가입
+                    </div>
+
+
+                    <h3>
+                        DailyMoa를 시작해볼까요?
+                    </h3>
+
+
+                    <p>
+                        간단한 정보만 입력하면
+                        바로 나만의 기록 공간을 만들 수 있어요.
+                    </p>
+
+                </div>
+
+
+                <!-- Flash Message -->
+
+                {% with messages = get_flashed_messages() %}
+
+                    {% if messages %}
+
+                        <div class="auth-flash-list">
+
+                            {% for message in messages %}
+
+                                <div class="auth-flash-item">
+                                    {{ message }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                {% endwith %}
+
+
+                <!-- =================================================
+                     Register Form
+                     ================================================= -->
+
+                <form
+                    method="POST"
+                    class="auth-form"
+                >
+
+
+                    <!-- Username -->
+
+                    <div class="auth-form-group">
+
+                        <label for="username">
+                            이름
+                        </label>
+
+                        <input
+                            id="username"
+                            type="text"
+                            name="username"
+                            placeholder="사용할 이름을 입력하세요"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="auth-form-group">
+
+                        <label for="email">
+                            이메일
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="auth-form-group">
+
+                        <label for="password">
+                            비밀번호
+                        </label>
+
+                        <div class="auth-password-wrap">
+
+                            <input
+                                id="password"
+                                type="password"
+                                name="password"
+                                placeholder="비밀번호를 입력하세요"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="auth-password-toggle"
+                                data-password-target="password"
+                                aria-label="비밀번호 보기"
+                            >
+                                보기
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password Confirm -->
+
+                    <div class="auth-form-group">
+
+                        <label for="password_confirm">
+                            비밀번호 확인
+                        </label>
+
+                        <div class="auth-password-wrap">
+
+                            <input
+                                id="password_confirm"
+                                type="password"
+                                name="password_confirm"
+                                placeholder="비밀번호를 다시 입력하세요"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="auth-password-toggle"
+                                data-password-target="password_confirm"
+                                aria-label="비밀번호 확인 보기"
+                            >
+                                보기
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password Status -->
+
+                    <div
+                        id="passwordMatchMessage"
+                        class="auth-password-message"
+                    ></div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit-button"
+                    >
+                        DailyMoa 시작하기
+                    </button>
+
+                </form>
+
+
+                <!-- Divider -->
+
+                <div class="auth-divider">
+                    <span>
+                        OR
+                    </span>
+                </div>
+
+
+                <!-- Login -->
+
+                <div class="auth-footer-links">
+
+                    <p>
+                        이미 계정이 있으신가요?
+
+                        <a
+                            href="{{ url_for(
+                                'auth.login'
+                            ) }}"
+                        >
+                            로그인
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         Register UX Script
+         ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const password =
+                    document.getElementById(
+                        "password"
+                    );
+
+
+                const confirmPassword =
+                    document.getElementById(
+                        "password_confirm"
+                    );
+
+
+                const message =
+                    document.getElementById(
+                        "passwordMatchMessage"
+                    );
+
+
+                /* ==========================================
+                   비밀번호 보기 / 숨기기
+                   ========================================== */
+
+                document
+                    .querySelectorAll(
+                        ".auth-password-toggle"
+                    )
+                    .forEach(
+                        function (button) {
+
+                            button.addEventListener(
+                                "click",
+                                function () {
+
+                                    const targetId =
+                                        button.dataset
+                                            .passwordTarget;
+
+
+                                    const target =
+                                        document
+                                            .getElementById(
+                                                targetId
+                                            );
+
+
+                                    if (!target) {
+                                        return;
+                                    }
+
+
+                                    const isPassword =
+                                        target.type
+                                        === "password";
+
+
+                                    target.type =
+                                        isPassword
+                                            ? "text"
+                                            : "password";
+
+
+                                    button.textContent =
+                                        isPassword
+                                            ? "숨김"
+                                            : "보기";
+
+                                }
+                            );
+
+                        }
+                    );
+
+
+                /* ==========================================
+                   비밀번호 일치 확인
+                   ========================================== */
+
+                function checkPasswordMatch() {
+
+                    if (
+                        !confirmPassword.value
+                    ) {
+
+                        message.textContent =
+                            "";
+
+                        message.className =
+                            "auth-password-message";
+
+                        return;
+                    }
+
+
+                    if (
+                        password.value
+                        === confirmPassword.value
+                    ) {
+
+                        message.textContent =
+                            "✓ 비밀번호가 일치합니다.";
+
+                        message.className =
+                            "auth-password-message match";
+
+                    }
+
+                    else {
+
+                        message.textContent =
+                            "비밀번호가 일치하지 않습니다.";
+
+                        message.className =
+                            "auth-password-message mismatch";
+
+                    }
+
+                }
+
+
+                password.addEventListener(
+                    "input",
+                    checkPasswordMatch
+                );
+
+
+                confirmPassword.addEventListener(
+                    "input",
+                    checkPasswordMatch
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

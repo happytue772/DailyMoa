@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block title %}
+일기 작성 - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/diary.css'
+    ) }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="diary-form-page">
+
+
+    <section class="diary-form-header">
+
+        <div>
+
+            <span class="page-kicker">
+                RECORD · DIARY
+            </span>
+
+            <h1 class="page-title">
+                오늘의 일기
+            </h1>
+
+            <p class="page-description">
+                오늘의 감정과 이야기를
+                편하게 기록해보세요.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('diary.diary_list') }}"
+            class="diary-back-button"
+        >
+
+            <span class="diary-back-arrow">
+                ←
+            </span>
+
+            <span>
+                일기 목록으로
+            </span>
+
+        </a>
+
+    </section>
+
+
+    <!-- 오늘의 질문 -->
+
+    <section
+        id="dailyQuestionCard"
+        class="daily-question-card"
+        data-question="{{ daily_question }}"
+    >
+
+        <div class="daily-question-icon">
+            ?
+        </div>
+
+
+        <div class="daily-question-content">
+
+            <span>
+                TODAY'S QUESTION
+            </span>
+
+            <strong>
+                {{ daily_question }}
+            </strong>
+
+        </div>
+
+
+        <button
+            id="useDailyQuestion"
+            type="button"
+            class="daily-question-button"
+        >
+            질문으로 시작하기
+        </button>
+
+    </section>
+
+
+    <!-- Diary Form -->
+
+    <form
+        method="POST"
+        class="diary-form-card"
+    >
+
+        <div class="diary-form-row">
+
+            <div class="diary-form-group">
+
+                <label for="diary_date">
+                    날짜
+                </label>
+
+                <input
+                    id="diary_date"
+                    type="date"
+                    name="diary_date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="diary-form-group">
+
+                <label for="mood">
+                    오늘의 기분
+                </label>
+
+                <select
+                    id="mood"
+                    name="mood"
+                    required
+                >
+
+                    <option value="😊 행복">
+                        😊 행복
+                    </option>
+
+                    <option value="🙂 좋음">
+                        🙂 좋음
+                    </option>
+
+                    <option value="😐 보통">
+                        😐 보통
+                    </option>
+
+                    <option value="😢 슬픔">
+                        😢 슬픔
+                    </option>
+
+                    <option value="😡 화남">
+                        😡 화남
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="diary-form-group">
+
+            <label for="title">
+                제목
+            </label>
+
+            <input
+                id="title"
+                type="text"
+                name="title"
+                placeholder="오늘 하루의 제목"
+                required
+            >
+
+        </div>
+
+
+        <div class="diary-form-group">
+
+            <label for="happiness_score">
+                행복 점수
+            </label>
+
+            <input
+                id="happiness_score"
+                type="number"
+                name="happiness_score"
+                min="1"
+                max="10"
+                value="5"
+                required
+            >
+
+            <small class="diary-help">
+                1점에서 10점 사이로 기록해주세요.
+            </small>
+
+        </div>
+
+
+        <div class="diary-form-group">
+
+            <label for="diaryContent">
+                내용
+            </label>
+
+            <textarea
+                id="diaryContent"
+                name="content"
+                placeholder="오늘 있었던 일을 자유롭게 기록해주세요."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button type="submit">
+                일기 저장
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/diary.js'
+    ) }}"
+></script>
+
+{% endblock %}

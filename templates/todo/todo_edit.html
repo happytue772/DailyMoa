@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>할 일 수정</h1>
+
+<form method="POST" class="form-card">
+
+    <label>제목</label>
+
+    <input
+        type="text"
+        name="title"
+        value="{{ todo.title }}"
+        required
+    >
+
+
+    <label>내용</label>
+
+    <textarea name="content">{{ todo.content or "" }}</textarea>
+
+
+    <label>마감일</label>
+
+    <input
+        type="date"
+        name="due_date"
+        value="{% if todo.due_date %}{{ todo.due_date.strftime('%Y-%m-%d') }}{% endif %}"
+    >
+
+
+    <label>우선순위</label>
+
+    <select name="priority">
+
+        <option value="LOW"
+            {% if todo.priority == "LOW" %}
+            selected
+            {% endif %}
+        >
+            낮음
+        </option>
+
+        <option value="NORMAL"
+            {% if todo.priority == "NORMAL" %}
+            selected
+            {% endif %}
+        >
+            보통
+        </option>
+
+        <option value="HIGH"
+            {% if todo.priority == "HIGH" %}
+            selected
+            {% endif %}
+        >
+            높음
+        </option>
+
+    </select>
+
+
+    <button type="submit">
+        수정 완료
+    </button>
+
+</form>
+
+{% endblock %}

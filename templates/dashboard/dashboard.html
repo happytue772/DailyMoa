@@ -1,0 +1,603 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Dashboard - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/dashboard.css'
+    ) }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="dashboard-hero">
+
+    <div class="dashboard-hero-copy">
+
+        <span class="page-kicker">
+            DAILYMOA · PERSONAL ARCHIVE
+        </span>
+
+        <h1>
+            오늘의 하루를<br>
+            <em>천천히 모아보세요.</em>
+        </h1>
+
+        <p>
+            할 일과 일정,
+            하루의 감정과 작은 기록까지.
+            흩어진 오늘을 한 공간에 남겨보세요.
+        </p>
+
+        <div class="hero-actions">
+
+            <a
+                href="{{ url_for('todo.todo_add') }}"
+                class="hero-main-link"
+            >
+                할 일 추가 →
+            </a>
+
+            <a
+                href="{{ url_for('diary.diary_add') }}"
+                class="hero-sub-link"
+            >
+                오늘 기록 남기기
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-hero-art">
+
+        <div class="hero-line line-one"></div>
+
+        <div class="hero-line line-two"></div>
+
+        <div class="hero-note">
+
+            <span>
+                DAILY NOTE
+            </span>
+
+            <strong>
+                작은 하루도<br>
+                모이면 기록이 됩니다.
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="day-summary-card">
+
+    <div class="day-summary-heading">
+
+        <div>
+
+            <span>
+                TODAY · WRAP UP
+            </span>
+
+            <h2>
+                오늘 하루
+            </h2>
+
+        </div>
+
+        <div class="day-summary-date">
+            오늘의 DailyMoa
+        </div>
+
+    </div>
+
+
+    <div class="day-summary-grid">
+
+        <div class="summary-item">
+
+            <span>
+                오늘 할 일
+            </span>
+
+            <strong>
+                {{ day_summary.todo_completed }}
+                /
+                {{ day_summary.todo_total }}
+            </strong>
+
+            <small>
+                완료
+            </small>
+
+        </div>
+
+
+        <div class="summary-item">
+
+            <span>
+                오늘 일정
+            </span>
+
+            <strong>
+                {{ day_summary.schedule_count }}
+            </strong>
+
+            <small>
+                개의 일정
+            </small>
+
+        </div>
+
+
+        <div class="summary-item">
+
+            <span>
+                오늘의 감정
+            </span>
+
+            {% if day_summary.diary %}
+
+            <strong>
+                {{ day_summary.diary.mood }}
+            </strong>
+
+            <small>
+                행복 점수
+                {{ day_summary.diary.happiness_score }}
+                / 10
+            </small>
+
+            {% else %}
+
+            <strong>
+                —
+            </strong>
+
+            <small>
+                아직 기록 전
+            </small>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="summary-message">
+
+            {% if day_summary.diary %}
+
+            <span>
+                오늘도 하나의 하루가
+                DailyMoa에 기록됐어요.
+            </span>
+
+            {% else %}
+
+            <span>
+                하루를 마무리하며
+                오늘을 기록해보세요.
+            </span>
+
+            <a
+                href="{{ url_for(
+                    'diary.diary_add'
+                ) }}"
+            >
+                오늘 기록하기 →
+            </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="dashboard-content-grid">
+
+
+    <article class="dashboard-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="panel-kicker">
+                    PLAN / TODO
+                </span>
+
+                <h2>
+                    오늘의 할 일
+                </h2>
+
+            </div>
+
+            <a href="{{ url_for('todo.todo_list') }}">
+                전체 보기
+            </a>
+
+        </div>
+
+
+        <div class="dashboard-list">
+
+            {% for todo in todos %}
+
+            <div class="dashboard-row">
+
+                <span class="dashboard-check"></span>
+
+                <div>
+
+                    <strong>
+                        {{ todo.title }}
+                    </strong>
+
+                    <small>
+
+                        {% if todo.due_date %}
+
+                            {{ todo.due_date }}
+
+                        {% else %}
+
+                            마감일 없음
+
+                        {% endif %}
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="dashboard-empty">
+                오늘 남아 있는 할 일이 없습니다.
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </article>
+
+
+    <article class="dashboard-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="panel-kicker">
+                    PLAN / CALENDAR
+                </span>
+
+                <h2>
+                    오늘 일정
+                </h2>
+
+            </div>
+
+            <a href="{{ url_for('schedule.calendar') }}">
+                캘린더 보기
+            </a>
+
+        </div>
+
+
+        <div class="dashboard-list">
+
+            {% for schedule in schedules %}
+
+            <div class="dashboard-row">
+
+                <span class="dashboard-time">
+
+                    {{
+                        schedule.start_datetime
+                        .strftime('%H:%M')
+                    }}
+
+                </span>
+
+                <div>
+
+                    <strong>
+                        {{ schedule.title }}
+                    </strong>
+
+                    <small>
+                        {{ schedule.content or "일정 내용 없음" }}
+                    </small>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="dashboard-empty">
+                오늘 예정된 일정이 없습니다.
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </article>
+
+
+</section>
+
+
+<section class="dashboard-diary">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="panel-kicker">
+                RECORD / DIARY
+            </span>
+
+            <h2>
+                최근의 기록
+            </h2>
+
+        </div>
+
+        <a href="{{ url_for('diary.diary_list') }}">
+            모든 기록 보기
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-diary-grid">
+
+        {% for diary in diaries %}
+
+        <a
+            href="{{ url_for(
+                'diary.diary_detail',
+                diary_id=diary.id
+            ) }}"
+            class="dashboard-diary-card"
+        >
+
+            <span>
+                {{ diary.diary_date }}
+            </span>
+
+            <strong>
+                {{ diary.mood }}
+                {{ diary.title }}
+            </strong>
+
+            <p>
+                {{ diary.content[:70] }}
+
+                {% if diary.content|length > 70 %}
+                    ...
+                {% endif %}
+            </p>
+
+            <small>
+                행복 점수
+                {{ diary.happiness_score }} / 10
+            </small>
+
+        </a>
+
+        {% else %}
+
+        <div class="dashboard-empty">
+            아직 남겨진 기록이 없습니다.
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     Today's Question Launcher
+     ===================================================== -->
+
+<button
+    id="dailyQuestionLauncher"
+    type="button"
+    class="daily-question-launcher"
+>
+    <span class="daily-question-launcher-icon">
+        ✦
+    </span>
+
+    <span class="daily-question-launcher-text">
+
+        <small>
+            TODAY
+        </small>
+
+        <strong id="dailyQuestionLauncherLabel">
+            오늘의 질문
+        </strong>
+
+    </span>
+</button>
+
+
+<!-- =====================================================
+     Today's Question Modal
+     ===================================================== -->
+
+<div
+    id="dailyQuestionModal"
+    class="daily-question-modal"
+    aria-hidden="true"
+    data-auto-open="{% if show_question_popup %}true{% else %}false{% endif %}"
+    data-storage-key="{{ question_storage_key }}"
+    data-diary-url="{{ url_for('diary.diary_add') }}"
+>
+
+    <!-- 배경 -->
+
+    <div
+        class="daily-question-modal-backdrop"
+        data-question-close
+    ></div>
+
+
+    <!-- Modal -->
+
+    <section
+        class="daily-question-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dailyQuestionModalTitle"
+    >
+
+        <!-- Header -->
+
+        <div class="daily-question-dialog-header">
+
+            <div class="daily-question-dialog-symbol">
+                ✦
+            </div>
+
+
+            <div>
+
+                <span class="daily-question-dialog-kicker">
+                    DAILYMOA · TODAY
+                </span>
+
+                <h2 id="dailyQuestionModalTitle">
+                    오늘의 질문
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="daily-question-close"
+                data-question-close
+                aria-label="닫기"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- 질문 -->
+
+        <div class="daily-question-dialog-body">
+
+            <p class="daily-question-dialog-description">
+                오늘 하루를 기록하기 전에
+                작은 질문 하나를 남겨볼까요?
+            </p>
+
+
+            <div class="daily-question-main">
+
+                <span>
+                    TODAY'S QUESTION
+                </span>
+
+                <strong>
+                    {{ daily_question }}
+                </strong>
+
+            </div>
+
+
+            <!-- 답변 -->
+
+            <div class="daily-question-answer">
+
+                <label for="dashboardQuestionAnswer">
+                    나의 답변
+                </label>
+
+                <textarea
+                    id="dashboardQuestionAnswer"
+                    placeholder="지금 떠오르는 생각을 편하게 적어보세요."
+                ></textarea>
+
+                <div class="daily-question-save-status">
+
+                    <span class="daily-question-save-dot"></span>
+
+                    작성한 내용은
+                    이 브라우저에 임시 저장됩니다.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="daily-question-dialog-actions">
+
+            <button
+                type="button"
+                class="question-later-button"
+                data-question-close
+            >
+                나중에 답하기
+            </button>
+
+
+            <button
+                id="continueQuestionToDiary"
+                type="button"
+                class="question-diary-button"
+            >
+                일기로 이어쓰기
+                <span>→</span>
+            </button>
+
+        </div>
+
+     </section>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/dashboard.js'
+    ) }}"
+></script>
+
+{% endblock %}

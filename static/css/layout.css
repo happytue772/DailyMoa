@@ -1,0 +1,825 @@
+/* =========================================================
+   DailyMoa Horizontal Layout
+   ========================================================= */
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 8%,
+            rgba(143, 126, 239, 0.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 8% 30%,
+            rgba(186, 176, 244, 0.10),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #fbfbff 0%,
+            #f5f4fb 100%
+        );
+}
+
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.app-header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    height: 84px;
+
+    border-bottom:
+        1px solid rgba(224, 223, 234, 0.9);
+
+    background:
+        rgba(255, 255, 255, 0.90);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+        0 3px 20px
+        rgba(70, 65, 105, 0.035);
+}
+
+
+.app-header-inner {
+    width:
+        min(1180px, calc(100% - 48px));
+
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   Brand
+   ========================================================= */
+
+.app-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+.brand-symbol {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid #dcd6ff;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2efff,
+            #e5e0ff
+        );
+
+    color:
+        #6959df;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 7px 18px
+        rgba(105, 89, 223, 0.10);
+}
+
+
+.brand-copy {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.brand-copy strong {
+    color: #292d3a;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+}
+
+
+.brand-copy small {
+    color: #969aaa;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   Horizontal Navigation
+   ========================================================= */
+
+.top-navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 5px;
+
+    border:
+        1px solid #e9e7f1;
+
+    border-radius: 14px;
+
+    background:
+        rgba(247, 246, 252, 0.82);
+}
+
+
+.top-nav-link {
+    min-width: 85px;
+
+    padding:
+        10px 15px;
+
+    border-radius: 10px;
+
+    color:
+        #74798a;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    transition:
+        0.18s ease;
+}
+
+
+.top-nav-link:hover {
+    color:
+        #6759dc;
+
+    background:
+        #f0edff;
+}
+
+
+.top-nav-link.active {
+    color:
+        #6253da;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 5px 14px
+        rgba(76, 68, 120, 0.08);
+
+    border:
+        1px solid #ded9ff;
+}
+
+
+/* =========================================================
+   User Area
+   ========================================================= */
+
+.header-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.header-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid #dcd7ff;
+
+    border-radius: 12px;
+
+    background:
+        #f1efff;
+
+    color:
+        #6859df;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.header-user-copy {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 80px;
+
+    gap: 2px;
+}
+
+
+.header-user-copy strong {
+    color: #3b3f4c;
+
+    font-size: 11px;
+}
+
+
+.header-user-copy span {
+    color: #9a9eac;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.header-logout {
+    padding:
+        8px 11px;
+
+    border:
+        1px solid #e2e1e9;
+
+    border-radius: 9px;
+
+    background: white;
+
+    color:
+        #747887;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition:
+        0.18s ease;
+}
+
+
+.header-logout:hover {
+    border-color:
+        #cec7ff;
+
+    background:
+        #f4f2ff;
+
+    color:
+        #6758dc;
+}
+
+
+/* =========================================================
+   Page Content
+   ========================================================= */
+
+.app-content-shell {
+    width:
+        min(1180px, calc(100% - 48px));
+
+    min-height:
+        calc(100vh - 84px);
+
+    margin:
+        0 auto;
+
+    padding:
+        48px 0 70px;
+}
+
+
+.auth-page-shell {
+    min-height:
+        100vh;
+}
+
+
+/* =========================================================
+   Animation
+   ========================================================= */
+
+@keyframes page-in {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+.page-enter {
+    animation:
+        page-in
+        0.45s
+        cubic-bezier(.22, 1, .36, 1)
+        both;
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (
+    max-width: 900px
+) {
+
+    .app-header {
+        height: auto;
+    }
+
+
+    .app-header-inner {
+        padding:
+            14px 0;
+
+        flex-wrap: wrap;
+    }
+
+
+    .top-navigation {
+        order: 3;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        justify-content:
+            flex-start;
+    }
+
+
+    .top-nav-link {
+        flex-shrink: 0;
+    }
+
+
+    .app-content-shell {
+        padding-top:
+            32px;
+    }
+
+}
+
+
+@media (
+    max-width: 620px
+) {
+
+    .header-user-copy {
+        display: none;
+    }
+
+
+    .brand-copy small {
+        display: none;
+    }
+
+
+    .app-header-inner,
+    .app-content-shell {
+        width:
+            min(94%, 1180px);
+    }
+
+}
+/* =========================================================
+   DailyMoa Live Clock
+   ========================================================= */
+
+.header-live-clock {
+    min-width: 215px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 7px 13px;
+
+    border:
+        1px solid #e3e0f2;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(246, 244, 255, 0.88)
+        );
+
+    box-shadow:
+        0 7px 20px
+        rgba(
+            76,
+            69,
+            120,
+            0.055
+        );
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* 왼쪽 시계 아이콘 */
+
+.live-clock-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid #d9d3ff;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1eeff,
+            #e6e1ff
+        );
+}
+
+
+/* 시계 원 */
+
+.live-clock-icon::before {
+    content: "";
+
+    width: 16px;
+    height: 16px;
+
+    border:
+        2px solid #7767e6;
+
+    border-radius: 50%;
+}
+
+
+/* 시침 */
+
+.live-clock-icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 6px;
+
+    top: 11px;
+    left: 17px;
+
+    border-radius: 999px;
+
+    background: #7767e6;
+
+    transform-origin: bottom;
+
+    transform:
+        rotate(-35deg);
+}
+
+
+/* =========================================================
+   Clock Text
+   ========================================================= */
+
+.live-clock-content {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.live-clock-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.live-clock-label {
+    color: #8c80dc;
+
+    font-size: 7px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+.live-clock-date {
+    color: #969aa9;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+}
+
+
+.live-clock-bottom {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+.live-clock-time {
+    color: #343846;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+/* =========================================================
+   LIVE Badge
+   ========================================================= */
+
+.live-clock-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding:
+        3px 6px;
+
+    border:
+        1px solid #d8eede;
+
+    border-radius: 999px;
+
+    background:
+        #f2faf5;
+
+    color:
+        #57936e;
+
+    font-size: 6px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.7px;
+}
+
+
+.live-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        #58b87b;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            88,
+            184,
+            123,
+            0.10
+        );
+
+    animation:
+        live-pulse
+        1.6s
+        infinite;
+}
+
+
+@keyframes live-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+}
+
+
+/* =========================================================
+   Clock Hover
+   ========================================================= */
+
+.header-live-clock {
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.header-live-clock:hover {
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #d5cff7;
+
+    box-shadow:
+        0 10px 24px
+        rgba(
+            76,
+            69,
+            120,
+            0.09
+        );
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (
+    max-width: 1100px
+) {
+
+    .header-live-clock {
+        min-width: auto;
+    }
+
+    .live-clock-date,
+    .live-clock-label,
+    .live-clock-status {
+        display: none;
+    }
+
+}
+
+
+@media (
+    max-width: 850px
+) {
+
+    .header-live-clock {
+        display: none;
+    }
+
+}
+/* =========================================================
+   Theme Toggle Button
+   ========================================================= */
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: 1px solid #dedbea;
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f5f3ff
+        );
+
+    color: #6c5dde;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 16px
+        rgba(83, 73, 135, 0.07);
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+
+    border-color: #c9c2ff;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #ebe7ff
+        );
+
+    box-shadow:
+        0 10px 22px
+        rgba(96, 80, 185, 0.14);
+}
+
+
+/* 실제로 누르는 느낌 */
+
+.theme-toggle:active {
+    transform:
+        translateY(1px)
+        scale(0.95);
+
+    box-shadow:
+        inset 0 3px 7px
+        rgba(93, 77, 177, 0.16);
+}

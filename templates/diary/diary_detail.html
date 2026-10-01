@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ diary.title }} - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/diary.css'
+    ) }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="diary-page">
+
+    <section class="page-header">
+
+        <div class="page-header-content">
+
+            <span class="page-kicker">
+                RECORD · DIARY
+            </span>
+
+            <h1 class="page-title">
+                나의 기록
+            </h1>
+
+            <p class="page-description">
+                하루의 감정과 이야기를
+                다시 돌아보세요.
+            </p>
+
+        </div>
+
+
+        <div class="page-header-side">
+
+            <a
+                href="{{ url_for('diary.diary_list') }}"
+                class="diary-action-btn diary-action-list"
+            >
+                ← 목록으로
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <article class="diary-detail-card">
+
+
+        <!-- 날짜 / 기분 -->
+
+        <div class="diary-detail-meta">
+
+            <span class="diary-detail-date">
+                {{ diary.diary_date }}
+            </span>
+
+            <span class="diary-mood-badge">
+                {{ diary.mood }}
+            </span>
+
+        </div>
+
+
+        <!-- 중요 기록 -->
+
+        <form
+            method="POST"
+            action="{{ url_for(
+                'diary.diary_toggle_important',
+                diary_id=diary.id
+            ) }}"
+            class="diary-important-form"
+        >
+
+            <button
+                type="submit"
+                class="
+                    diary-important-button
+                    {% if is_important %}
+                    active
+                    {% endif %}
+                "
+            >
+
+                {% if is_important %}
+
+                    ★ 중요 기록
+
+                {% else %}
+
+                    ☆ 중요 기록 추가
+
+                {% endif %}
+
+            </button>
+
+        </form>
+
+
+        <!-- 제목 -->
+
+        <h2 class="diary-detail-title">
+            {{ diary.title }}
+        </h2>
+
+
+        <!-- 행복 점수 -->
+
+        <div class="diary-detail-score">
+
+            <span>
+                행복 점수
+            </span>
+
+            <strong>
+                {{ diary.happiness_score }} / 10
+            </strong>
+
+        </div>
+
+
+        <div class="diary-detail-score-bar">
+
+            <div
+                class="
+                    diary-detail-score-fill
+                    score-{{ diary.happiness_score }}
+                "
+            ></div>
+
+        </div>
+
+
+        <!-- 내용 -->
+
+        <div class="diary-content-box">
+
+            <span class="diary-content-label">
+                TODAY'S STORY
+            </span>
+
+            <p class="diary-detail-content">
+                {{ diary.content }}
+            </p>
+
+        </div>
+
+
+        <!-- Action -->
+
+        <div class="diary-detail-actions">
+
+            <a
+                href="{{ url_for(
+                    'diary.diary_edit',
+                    diary_id=diary.id
+                ) }}"
+                class="
+                    diary-action-btn
+                    diary-action-edit
+                "
+            >
+                수정
+            </a>
+
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'diary.diary_delete',
+                    diary_id=diary.id
+                ) }}"
+                onsubmit="
+                    return confirm(
+                        '이 일기를 삭제하시겠습니까?'
+                    );
+                "
+            >
+
+                <button
+                    type="submit"
+                    class="
+                        diary-action-btn
+                        diary-action-delete
+                    "
+                >
+                    삭제
+                </button>
+
+            </form>
+
+
+            <a
+                href="{{ url_for('diary.diary_list') }}"
+                class="
+                    diary-action-btn
+                    diary-action-list
+                "
+            >
+                목록
+            </a>
+
+        </div>
+
+    </article>
+
+</div>
+
+{% endblock %}

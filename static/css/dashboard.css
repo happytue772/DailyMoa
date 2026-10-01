@@ -1,0 +1,1931 @@
+/* =========================================================
+   DailyMoa Dashboard
+   ========================================================= */
+
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.dashboard-hero {
+    min-height: 330px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr 0.8fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    padding:
+        18px 0 52px;
+
+    border-bottom:
+        1px solid #e4e2eb;
+}
+
+
+.dashboard-hero-copy h1 {
+    margin:
+        16px 0 20px;
+
+    color:
+        #292d39;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            68px
+        );
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -0.065em;
+}
+
+
+.dashboard-hero-copy h1 em {
+    color:
+        #7869e4;
+
+    font-style:
+        normal;
+}
+
+
+.dashboard-hero-copy p {
+    max-width:
+        520px;
+
+    margin: 0;
+
+    color:
+        #777c8c;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.9;
+}
+
+
+.hero-actions {
+    margin-top:
+        28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.hero-main-link {
+    padding-bottom:
+        5px;
+
+    border-bottom:
+        1px solid #7767e6;
+
+    color:
+        #6c5ddd;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+}
+
+
+.hero-sub-link {
+    color:
+        #8b8f9f;
+
+    font-size:
+        11px;
+
+    font-weight:
+        650;
+}
+
+
+/* =========================================================
+   Hero Artwork
+   ========================================================= */
+
+.dashboard-hero-art {
+    position: relative;
+
+    min-height:
+        245px;
+}
+
+
+.hero-line {
+    position: absolute;
+
+    width: 165px;
+    height: 165px;
+
+    border:
+        1px solid
+        rgba(
+            123,
+            106,
+            228,
+            0.26
+        );
+}
+
+
+.line-one {
+    top: 8px;
+    right: 80px;
+
+    transform:
+        rotate(-6deg);
+}
+
+
+.line-two {
+    top: 38px;
+    right: 24px;
+
+    transform:
+        rotate(7deg);
+
+    border-color:
+        rgba(
+            179,
+            166,
+            241,
+            0.38
+        );
+}
+
+
+.hero-note {
+    position: absolute;
+
+    top: 70px;
+    right: 0;
+
+    width: 180px;
+    height: 180px;
+
+    padding:
+        22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content:
+        space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eeeaff,
+            #e3defb
+        );
+
+    box-shadow:
+        0 14px 36px
+        rgba(
+            91,
+            80,
+            145,
+            0.07
+        );
+}
+
+
+.hero-note span {
+    color:
+        #8174d7;
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.1px;
+}
+
+
+.hero-note strong {
+    color:
+        #4b4e5b;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   Dashboard Panels
+   ========================================================= */
+
+.dashboard-content-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    padding:
+        36px 0 20px;
+}
+
+
+.dashboard-panel,
+.dashboard-diary {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.88
+        );
+
+    border:
+        1px solid #e7e5ee;
+
+    border-radius:
+        17px;
+
+    box-shadow:
+        0 12px 32px
+        rgba(
+            70,
+            65,
+            110,
+            0.045
+        );
+}
+
+
+.dashboard-panel {
+    padding:
+        23px;
+}
+
+
+.dashboard-diary {
+    padding:
+        24px;
+
+    margin-top:
+        2px;
+}
+
+
+.panel-header {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
+
+    margin-bottom:
+        22px;
+}
+
+
+.panel-kicker {
+    color:
+        #8a7fd3;
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+}
+
+
+.panel-header h2 {
+    margin:
+        5px 0 0;
+
+    color:
+        #353945;
+
+    font-size:
+        21px;
+
+    letter-spacing:
+        -0.035em;
+}
+
+
+.panel-header a {
+    color:
+        #7263da;
+
+    font-size:
+        10px;
+
+    font-weight:
+        750;
+}
+
+
+/* =========================================================
+   Dashboard List
+   ========================================================= */
+
+.dashboard-row {
+    min-height:
+        60px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom:
+        1px solid #efedf3;
+}
+
+
+.dashboard-row:last-child {
+    border-bottom:
+        none;
+}
+
+
+.dashboard-row div {
+    display: flex;
+
+    min-width: 0;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.dashboard-row strong {
+    color:
+        #424653;
+
+    font-size:
+        12px;
+}
+
+
+.dashboard-row small {
+    max-width:
+        310px;
+
+    overflow:
+        hidden;
+
+    color:
+        #979baa;
+
+    font-size:
+        9px;
+
+    white-space:
+        nowrap;
+
+    text-overflow:
+        ellipsis;
+}
+
+
+.dashboard-check {
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    border:
+        2px solid #8879eb;
+
+    border-radius:
+        3px;
+}
+
+
+.dashboard-time {
+    min-width:
+        46px;
+
+    padding:
+        6px;
+
+    border-radius:
+        8px;
+
+    background:
+        #f0edff;
+
+    color:
+        #7061dc;
+
+    font-size:
+        9px;
+
+    font-weight:
+        850;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   Recent Diary
+   ========================================================= */
+
+.dashboard-diary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+
+.dashboard-diary-card {
+    min-height:
+        160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding:
+        17px;
+
+    border:
+        1px solid #ebe8f3;
+
+    border-radius:
+        13px;
+
+    background:
+        #fbfaff;
+
+    transition:
+        0.20s ease;
+}
+
+
+.dashboard-diary-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #d8d1ff;
+
+    box-shadow:
+        0 12px 26px
+        rgba(
+            76,
+            67,
+            120,
+            0.07
+        );
+}
+
+
+.dashboard-diary-card > span {
+    color:
+        #989baa;
+
+    font-size:
+        9px;
+}
+
+
+.dashboard-diary-card strong {
+    margin:
+        15px 0 8px;
+
+    color:
+        #3b3f4d;
+
+    font-size:
+        13px;
+}
+
+
+.dashboard-diary-card p {
+    margin: 0;
+
+    color:
+        #888d9d;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.65;
+}
+
+
+.dashboard-diary-card small {
+    margin-top:
+        auto;
+
+    padding-top:
+        14px;
+
+    color:
+        #7467d7;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+}
+
+
+.dashboard-empty {
+    padding:
+        35px 10px;
+
+    color:
+        #a0a3b0;
+
+    font-size:
+        10px;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   Day Wrap Up
+   ========================================================= */
+
+.day-summary-card {
+    margin:
+        28px 0 8px;
+
+    padding:
+        23px 25px;
+
+    border:
+        1px solid #e6e3f0;
+
+    border-radius:
+        18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.96
+            ),
+            rgba(
+                246,
+                243,
+                255,
+                0.92
+            )
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(
+            69,
+            61,
+            110,
+            0.05
+        );
+}
+
+
+.day-summary-heading {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        18px;
+}
+
+
+.day-summary-heading span {
+    color:
+        #8d80dd;
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+}
+
+
+.day-summary-heading h2 {
+    margin:
+        5px 0 0;
+
+    color:
+        #363a47;
+
+    font-size:
+        20px;
+}
+
+
+.day-summary-date {
+    color:
+        #9497a5;
+
+    font-size:
+        9px;
+}
+
+
+.day-summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 130px)
+        1fr;
+
+    gap:
+        12px;
+}
+
+
+.summary-item,
+.summary-message {
+    padding:
+        14px;
+
+    border:
+        1px solid #ebe8f3;
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.80
+        );
+}
+
+
+.summary-item {
+    display: flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        4px;
+}
+
+
+.summary-item span {
+    color:
+        #9296a5;
+
+    font-size:
+        8px;
+}
+
+
+.summary-item strong {
+    color:
+        #4a4e5d;
+
+    font-size:
+        17px;
+}
+
+
+.summary-item small {
+    color:
+        #8d82d9;
+
+    font-size:
+        8px;
+}
+
+
+.summary-message {
+    display: flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    color:
+        #666b7a;
+
+    font-size:
+        10px;
+}
+
+
+.summary-message a {
+    color:
+        #6c5ed7;
+
+    font-weight:
+        750;
+
+    white-space:
+        nowrap;
+}
+
+
+/* =========================================================
+   Today's Question Launcher
+   ========================================================= */
+
+.daily-question-launcher {
+    position: fixed;
+
+    right:
+        30px;
+
+    bottom:
+        28px;
+
+    z-index:
+        800;
+
+    min-width:
+        158px;
+
+    height:
+        58px;
+
+    display: flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    padding:
+        0 16px 0 10px;
+
+    border:
+        1px solid #d8d1ff;
+
+    border-radius:
+        18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.98
+            ),
+            rgba(
+                239,
+                235,
+                255,
+                0.98
+            )
+        );
+
+    color:
+        #5f52cf;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 14px 35px
+        rgba(
+            78,
+            65,
+            153,
+            0.17
+        );
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.daily-question-launcher:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #c5bbff;
+
+    box-shadow:
+        0 18px 42px
+        rgba(
+            78,
+            65,
+            153,
+            0.23
+        );
+}
+
+
+.daily-question-launcher:active {
+    transform:
+        translateY(1px)
+        scale(0.98);
+}
+
+
+.daily-question-launcher-icon {
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dfd8ff,
+            #eeeaff
+        );
+
+    color:
+        #6656d7;
+
+    font-size:
+        17px;
+}
+
+
+.daily-question-launcher-text {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        2px;
+}
+
+
+.daily-question-launcher-text small {
+    color:
+        #9990d7;
+
+    font-size:
+        7px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+}
+
+
+.daily-question-launcher-text strong {
+    color:
+        #5044bd;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   Today's Question Modal
+   ========================================================= */
+
+.daily-question-modal {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        1200;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        24px;
+
+    /*
+       중요:
+       Modal 자체가 페이지의 Wheel을 막지 않도록 한다.
+    */
+    overflow:
+        visible;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease;
+}
+
+
+.daily-question-modal.show {
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+}
+
+
+/* =========================================================
+   Modal Backdrop
+   ========================================================= */
+
+.daily-question-modal-backdrop {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        0;
+
+    background:
+        rgba(
+            36,
+            34,
+            48,
+            0.32
+        );
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+}
+
+
+/* =========================================================
+   Modal Dialog
+   ========================================================= */
+
+.daily-question-dialog {
+    width:
+        min(560px, 100%);
+
+    max-height:
+        calc(100dvh - 48px);
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(
+            222,
+            216,
+            250,
+            0.96
+        );
+
+    border-radius:
+        24px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.98
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            49,
+            42,
+            87,
+            0.20
+        );
+
+    transform:
+        translateY(18px)
+        scale(0.97);
+
+    transition:
+        transform 0.24s ease;
+}
+
+
+/*
+   기존에 잘못 들어가 있던
+   .daily-question-dialog 단독 selector가 아니라
+   Modal이 열렸을 때만 적용한다.
+*/
+
+.daily-question-modal.show
+.daily-question-dialog {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   Modal Header
+   ========================================================= */
+
+.daily-question-dialog-header {
+    display:
+        grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    padding:
+        22px 24px 18px;
+
+    flex-shrink:
+        0;
+
+    border-bottom:
+        1px solid #efedf6;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbfaff,
+            #f3f0ff
+        );
+}
+
+
+.daily-question-dialog-symbol {
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        14px;
+
+    background:
+        #e7e1ff;
+
+    color:
+        #6757d7;
+
+    font-size:
+        19px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.8
+        );
+}
+
+
+.daily-question-dialog-kicker {
+    color:
+        #9184de;
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.3px;
+}
+
+
+.daily-question-dialog-header h2 {
+    margin:
+        4px 0 0;
+
+    color:
+        #343846;
+
+    font-size:
+        21px;
+
+    letter-spacing:
+        -0.03em;
+}
+
+
+/* =========================================================
+   Modal Close
+   ========================================================= */
+
+.daily-question-close {
+    width:
+        35px;
+
+    height:
+        35px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid #e3dfef;
+
+    border-radius:
+        11px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.75
+        );
+
+    color:
+        #8c8e9b;
+
+    font-size:
+        21px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.daily-question-close:hover {
+    background:
+        #eeeaff;
+
+    color:
+        #6255cf;
+
+    transform:
+        rotate(4deg);
+}
+
+
+.daily-question-close:active {
+    transform:
+        scale(0.94);
+}
+
+
+/* =========================================================
+   Modal Body
+   ========================================================= */
+
+.daily-question-dialog-body {
+    padding:
+        24px;
+
+    flex:
+        1;
+
+    min-height:
+        0;
+
+    /*
+       Modal 내용 자체가 길어진 경우에만
+       Modal 내부에서 스크롤된다.
+    */
+    overflow-y:
+        auto;
+
+    overflow-x:
+        hidden;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        #cbc4ed transparent;
+}
+
+
+.daily-question-dialog-body::-webkit-scrollbar {
+    width:
+        6px;
+}
+
+
+.daily-question-dialog-body::-webkit-scrollbar-track {
+    background:
+        transparent;
+}
+
+
+.daily-question-dialog-body::-webkit-scrollbar-thumb {
+    border-radius:
+        999px;
+
+    background:
+        #cbc4ed;
+}
+
+
+.daily-question-dialog-body::-webkit-scrollbar-thumb:hover {
+    background:
+        #afa4e7;
+}
+
+
+.daily-question-dialog-description {
+    margin:
+        0 0 18px;
+
+    color:
+        #898d9d;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   Question
+   ========================================================= */
+
+.daily-question-main {
+    padding:
+        18px 19px;
+
+    border:
+        1px solid #e3ddfb;
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf9ff,
+            #f2efff
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.70
+        );
+}
+
+
+.daily-question-main span {
+    display:
+        block;
+
+    margin-bottom:
+        6px;
+
+    color:
+        #9183dd;
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.2px;
+}
+
+
+.daily-question-main strong {
+    display:
+        block;
+
+    color:
+        #3c4050;
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.6;
+
+    letter-spacing:
+        -0.02em;
+}
+
+
+/* =========================================================
+   Answer
+   ========================================================= */
+
+.daily-question-answer {
+    margin-top:
+        20px;
+}
+
+
+.daily-question-answer label {
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        #555967;
+
+    font-size:
+        11px;
+
+    font-weight:
+        750;
+}
+
+
+.daily-question-answer textarea {
+    width:
+        100%;
+
+    min-height:
+        105px;
+
+    max-height:
+        220px;
+
+    resize:
+        vertical;
+
+    padding:
+        15px 16px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid #e0dee9;
+
+    border-radius:
+        14px;
+
+    background:
+        #fcfcfe;
+
+    color:
+        #454957;
+
+    font-family:
+        inherit;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.7;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.16s ease,
+        box-shadow 0.16s ease,
+        background 0.16s ease;
+}
+
+
+.daily-question-answer textarea::placeholder {
+    color:
+        #aaaebb;
+}
+
+
+.daily-question-answer textarea:focus {
+    border-color:
+        #bfb5ff;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(
+            119,
+            103,
+            231,
+            0.08
+        );
+}
+
+
+/* =========================================================
+   Save Status
+   ========================================================= */
+
+.daily-question-save-status {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    margin-top:
+        8px;
+
+    color:
+        #9a9dac;
+
+    font-size:
+        8px;
+}
+
+
+.daily-question-save-dot {
+    width:
+        6px;
+
+    height:
+        6px;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        #82c7a3;
+}
+
+
+/* =========================================================
+   Modal Footer
+   ========================================================= */
+
+.daily-question-dialog-actions {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        9px;
+
+    padding:
+        17px 24px 22px;
+
+    flex-shrink:
+        0;
+
+    border-top:
+        1px solid #f0eef6;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.96
+        );
+}
+
+
+/* =========================================================
+   Modal Buttons
+   ========================================================= */
+
+.question-later-button,
+.question-diary-button {
+    min-height:
+        42px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        6px;
+
+    padding:
+        0 17px;
+
+    border-radius:
+        12px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.14s ease,
+        box-shadow 0.14s ease,
+        border-color 0.14s ease,
+        background 0.14s ease;
+}
+
+
+.question-later-button {
+    border:
+        1px solid #e1dfea;
+
+    background:
+        #f7f7fa;
+
+    color:
+        #777b89;
+}
+
+
+.question-later-button:hover {
+    border-color:
+        #d7d3e3;
+
+    background:
+        #efeff5;
+}
+
+
+.question-diary-button {
+    border:
+        1px solid #7564de;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8978ef,
+            #6d5cdd
+        );
+
+    color:
+        white;
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            105,
+            89,
+            214,
+            0.20
+        );
+}
+
+
+.question-diary-button:hover {
+    box-shadow:
+        0 11px 24px
+        rgba(
+            105,
+            89,
+            214,
+            0.28
+        );
+}
+
+
+.question-diary-button:hover,
+.question-later-button:hover {
+    transform:
+        translateY(-1px);
+}
+
+
+.question-diary-button:active,
+.question-later-button:active {
+    transform:
+        translateY(1px)
+        scale(0.98);
+}
+
+
+/* =========================================================
+   중요
+   Modal이 떠 있어도 Dashboard Scroll 허용
+   ========================================================= */
+
+body.question-modal-open {
+    overflow-y:
+        auto !important;
+
+    overflow-x:
+        hidden;
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (
+    max-width: 850px
+) {
+
+    .dashboard-hero {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .dashboard-hero-art {
+        display:
+            none;
+    }
+
+
+    .dashboard-content-grid,
+    .dashboard-diary-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .day-summary-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media (
+    max-width: 620px
+) {
+
+    .daily-question-launcher {
+        right:
+            18px;
+
+        bottom:
+            18px;
+    }
+
+
+    .daily-question-modal {
+        padding:
+            18px 14px;
+    }
+
+
+    .daily-question-dialog {
+        width:
+            100%;
+
+        max-height:
+            calc(100dvh - 36px);
+
+        border-radius:
+            20px;
+    }
+
+
+    .daily-question-dialog-header {
+        padding:
+            18px;
+    }
+
+
+    .daily-question-dialog-symbol {
+        width:
+            40px;
+
+        height:
+            40px;
+    }
+
+
+    .daily-question-dialog-header h2 {
+        font-size:
+            19px;
+    }
+
+
+    .daily-question-dialog-body {
+        padding:
+            18px;
+    }
+
+
+    .daily-question-main {
+        padding:
+            16px;
+    }
+
+
+    .daily-question-main strong {
+        font-size:
+            15px;
+    }
+
+
+    .daily-question-answer textarea {
+        min-height:
+            95px;
+    }
+
+
+    .daily-question-dialog-actions {
+        padding:
+            14px 18px 18px;
+
+        flex-direction:
+            column-reverse;
+    }
+
+
+    .question-later-button,
+    .question-diary-button {
+        width:
+            100%;
+    }
+
+}
+
+
+@media (
+    max-width: 550px
+) {
+
+    .day-summary-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+@media (
+    max-height: 650px
+) {
+
+    .daily-question-dialog {
+        max-height:
+            calc(100dvh - 28px);
+    }
+
+
+    .daily-question-dialog-header {
+        padding:
+            15px 20px;
+    }
+
+
+    .daily-question-dialog-body {
+        padding:
+            16px 20px;
+    }
+
+
+    .daily-question-dialog-actions {
+        padding:
+            12px 20px 15px;
+    }
+
+
+    .daily-question-answer textarea {
+        min-height:
+            80px;
+    }
+
+}

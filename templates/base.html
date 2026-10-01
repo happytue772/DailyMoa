@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        DailyMoa
+        {% endblock %}
+    </title>
+<script>
+    (function () {
+
+        const savedTheme =
+            localStorage.getItem(
+                "dailymoa-theme"
+            );
+
+
+        const systemDark =
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+
+        const initialTheme =
+            savedTheme
+            || (
+                systemDark
+                    ? "dark"
+                    : "light"
+            );
+
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            initialTheme
+        );
+
+    })();
+</script>
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/common.css'
+        ) }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/layout.css'
+        ) }}">
+
+    {% block head %}
+    {% endblock %}
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/dark.css'
+    ) }}"
+>
+</head>
+
+
+<body class="{% block body_class %}{% endblock %}">
+
+
+{% if current_user.is_authenticated %}
+
+<header class="app-header">
+
+    <div class="app-header-inner">
+
+        <!-- Brand -->
+
+        <a
+            href="{{ url_for('dashboard.dashboard') }}"
+            class="app-brand">
+
+            <span class="brand-symbol">
+                D
+            </span>
+
+            <span class="brand-copy">
+
+                <strong>
+                    DailyMoa
+                </strong>
+
+                <small>
+                    하루를 모으는 공간
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <!-- Navigation -->
+
+        <nav class="top-navigation">
+
+            <a
+                href="{{ url_for('dashboard.dashboard') }}"
+                class="top-nav-link
+                {% if request.path.startswith('/dashboard') %}
+                active
+                {% endif %}"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="{{ url_for('todo.todo_list') }}"
+                class="top-nav-link
+                {% if request.path.startswith('/todo') %}
+                active
+                {% endif %}">
+                Todo
+            </a>
+
+
+            <a
+                href="{{ url_for('schedule.calendar') }}"
+                class="top-nav-link
+                {% if request.path.startswith('/calendar') %}
+                active
+                {% endif %}">
+                Calendar
+            </a>
+
+
+            <a
+                href="{{ url_for('diary.diary_list') }}"
+                class="top-nav-link
+                {% if request.path.startswith('/diary') %}
+                active
+                {% endif %}"
+            >
+                Diary
+            </a>
+
+        </nav>
+<!-- =====================================================
+     Live Clock
+     ===================================================== -->
+
+<div class="header-live-clock">
+
+    <div class="live-clock-icon">
+        <span></span>
+    </div>
+
+    <div class="live-clock-content">
+
+        <div class="live-clock-top">
+
+            <span class="live-clock-label">
+                TODAY
+            </span>
+
+            <span
+                id="liveClockDate"
+                class="live-clock-date"
+            >
+                날짜 불러오는 중
+            </span>
+
+        </div>
+
+
+        <div class="live-clock-bottom">
+
+            <strong
+                id="liveClockTime"
+                class="live-clock-time"
+            >
+                00:00:00
+            </strong>
+
+            <span class="live-clock-status">
+                <span class="live-dot"></span>
+                LIVE
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- User -->
+
+        <div class="header-user">
+
+            <div class="header-avatar">
+
+                {{
+                    current_user.username[0]
+                    | upper
+                }}
+
+            </div>
+
+
+            <div class="header-user-copy">
+
+                <strong>
+                    {{ current_user.username }}
+                </strong>
+
+                <span>
+                    Personal space
+                </span>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('auth.logout') }}"
+                class="header-logout">
+                로그아웃
+            </a>
+
+        </div>
+   
+
+    <!-- 다크모드 전환 -->
+
+    <button
+        id="themeToggle"
+        type="button"
+        class="theme-toggle"
+        aria-label="다크모드 전환"
+        title="다크모드 전환"
+    >
+        <span id="themeIcon">
+            ☾
+        </span>
+    </button>
+
+</div>
+
+    </div>
+
+</header>
+
+
+<main class="app-content-shell page-enter">
+
+{% else %}
+
+<main class="auth-page-shell">
+
+{% endif %}
+
+
+    {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="flash-message">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+
+    {% block content %}
+    {% endblock %}
+
+
+</main>
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/common.js'
+    ) }}"
+></script>
+
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

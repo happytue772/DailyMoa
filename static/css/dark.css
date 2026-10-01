@@ -1,0 +1,1764 @@
+/* =========================================================
+   DailyMoa Dark Mode
+   ========================================================= */
+
+
+/* =========================================================
+   Global
+   ========================================================= */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+
+html[data-theme="dark"] body {
+    color: #e8e8f1;
+
+    background:
+        radial-gradient(
+            circle at 82% 8%,
+            rgba(112, 91, 210, 0.15),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #17171f 0%,
+            #1d1c27 100%
+        );
+}
+
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+html[data-theme="dark"] .app-header {
+    border-bottom-color: #333240;
+
+    background:
+        rgba(
+            26,
+            26,
+            35,
+            0.94
+        );
+
+    box-shadow:
+        0 3px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+}
+
+
+html[data-theme="dark"] .brand-copy strong {
+    color: #f3f2f8;
+}
+
+
+html[data-theme="dark"] .brand-copy small {
+    color: #8f91a3;
+}
+
+
+html[data-theme="dark"] .brand-symbol,
+html[data-theme="dark"] .header-avatar {
+    border-color: #514b78;
+
+    background:
+        linear-gradient(
+            135deg,
+            #302b4e,
+            #3d3565
+        );
+
+    color: #b8aafd;
+}
+
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+
+html[data-theme="dark"] .top-navigation {
+    border-color: #393747;
+
+    background:
+        rgba(
+            37,
+            36,
+            48,
+            0.92
+        );
+}
+
+
+html[data-theme="dark"] .top-nav-link {
+    color: #a7a8b7;
+}
+
+
+html[data-theme="dark"] .top-nav-link:hover {
+    color: #c4b9ff;
+
+    background:
+        #302d43;
+}
+
+
+html[data-theme="dark"] .top-nav-link.active {
+    color: #c1b5ff;
+
+    border-color: #514b76;
+
+    background: #343047;
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+}
+
+
+/* =========================================================
+   User / Logout
+   ========================================================= */
+
+html[data-theme="dark"] .header-user-copy strong {
+    color: #e8e8ef;
+}
+
+
+html[data-theme="dark"] .header-user-copy span {
+    color: #858798;
+}
+
+
+html[data-theme="dark"] .header-logout {
+    border-color: #42404e;
+
+    background: #292832;
+
+    color: #b7b7c2;
+}
+
+
+html[data-theme="dark"] .header-logout:hover {
+    border-color: #625990;
+
+    background: #343045;
+
+    color: #c3b8ff;
+}
+
+
+/* =========================================================
+   Main Content
+   ========================================================= */
+
+html[data-theme="dark"] .app-content-shell {
+    background:
+        radial-gradient(
+            circle at 85% 8%,
+            rgba(
+                119,
+                97,
+                224,
+                0.13
+            ),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #191922 0%,
+            #1e1d29 100%
+        );
+}
+
+
+/* =========================================================
+   Page Hero
+   ========================================================= */
+
+html[data-theme="dark"] .page-header {
+    border-color: #393746;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(
+                128,
+                104,
+                235,
+                0.17
+            ),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            #24232e 0%,
+            #282634 55%,
+            #2d2941 100%
+        );
+
+    box-shadow:
+        0 16px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.20
+        );
+}
+
+
+html[data-theme="dark"]
+.page-header::before {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+}
+
+
+html[data-theme="dark"]
+.page-header .page-kicker {
+    color: #a99cff !important;
+}
+
+
+html[data-theme="dark"]
+.page-header .page-title {
+    color: #f0eff6 !important;
+}
+
+
+html[data-theme="dark"]
+.page-header .page-description {
+    color: #a4a5b3 !important;
+}
+
+
+/* =========================================================
+   Common Page Typography
+   ========================================================= */
+
+html[data-theme="dark"] .page-title {
+    color: #f0eff6;
+}
+
+
+html[data-theme="dark"] .page-description {
+    color: #a2a4b3;
+}
+
+
+html[data-theme="dark"] .page-kicker {
+    color: #aa9cff;
+}
+
+
+/* =========================================================
+   Common Cards
+   ========================================================= */
+
+html[data-theme="dark"] .content-card,
+html[data-theme="dark"] .form-card,
+html[data-theme="dark"] .todo-form-card,
+html[data-theme="dark"] .diary-form-card,
+html[data-theme="dark"] .diary-detail-card,
+html[data-theme="dark"] .calendar-card,
+html[data-theme="dark"] .dashboard-panel,
+html[data-theme="dark"] .dashboard-diary {
+    border-color: #393745;
+
+    background:
+        rgba(
+            39,
+            38,
+            49,
+            0.96
+        );
+
+    box-shadow:
+        0 12px 32px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+}
+
+
+/* =========================================================
+   Form
+   ========================================================= */
+
+html[data-theme="dark"] label {
+    color: #bbbcc8;
+}
+
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+    border-color: #464452;
+
+    background: #22212b;
+
+    color: #ededf3;
+}
+
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: #737584;
+}
+
+
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] textarea:focus,
+html[data-theme="dark"] select:focus {
+    border-color: #8073e8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            126,
+            111,
+            232,
+            0.14
+        );
+}
+
+
+/* =========================================================
+   Todo
+   ========================================================= */
+
+html[data-theme="dark"] .todo-filter-bar {
+    border-color: #3c3948;
+
+    background:
+        rgba(
+            40,
+            39,
+            50,
+            0.92
+        );
+}
+
+
+html[data-theme="dark"] .todo-card {
+    border-color: #393744;
+
+    background: #272630;
+
+    box-shadow:
+        0 12px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+}
+
+
+html[data-theme="dark"] .todo-title {
+    color: #eeeef4;
+}
+
+
+html[data-theme="dark"] .todo-description,
+html[data-theme="dark"] .todo-meta {
+    color: #a6a7b3;
+}
+
+
+html[data-theme="dark"] .todo-edit-button {
+    border-color: #514a76;
+
+    background:
+        linear-gradient(
+            180deg,
+            #302d42,
+            #343047
+        );
+
+    color: #bbb0ff;
+}
+
+
+html[data-theme="dark"] .todo-delete-button {
+    border-color: #633e48 !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #38262c,
+            #332329
+        ) !important;
+
+    color: #e795a1 !important;
+}
+
+
+html[data-theme="dark"] .todo-reset-button,
+html[data-theme="dark"] .todo-cancel-button,
+html[data-theme="dark"] .todo-back-button {
+    border-color: #494655;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2e2c39,
+            #292733
+        );
+
+    color: #b5acdF;
+}
+
+
+html[data-theme="dark"] .todo-back-arrow {
+    border-color: #514a76;
+
+    background: #38334f;
+
+    color: #b9adff;
+}
+
+
+/* =========================================================
+   Diary
+   ========================================================= */
+
+html[data-theme="dark"] .diary-card {
+    border-color: #393745;
+
+    background:
+        rgba(
+            39,
+            38,
+            49,
+            0.96
+        );
+
+    box-shadow:
+        0 10px 28px
+        rgba(
+            0,
+            0,
+            0,
+            0.16
+        );
+}
+
+
+html[data-theme="dark"] .diary-card-date {
+    color: #888a99;
+}
+
+
+html[data-theme="dark"] .diary-card-mood {
+    color: #c5c5d0;
+}
+
+
+html[data-theme="dark"] .diary-card-title {
+    color: #f0eff5;
+}
+
+
+html[data-theme="dark"] .diary-filter-bar {
+    border-color: #3b3947;
+
+    background:
+        rgba(
+            40,
+            39,
+            50,
+            0.92
+        );
+}
+
+
+html[data-theme="dark"] .diary-content-box {
+    border-color: #3b3947;
+
+    background:
+        linear-gradient(
+            145deg,
+            #22212a,
+            #282631
+        );
+}
+
+
+html[data-theme="dark"] .diary-detail-title {
+    color: #f1f0f6;
+}
+
+
+html[data-theme="dark"] .diary-detail-content {
+    color: #c0c1cb;
+}
+
+
+html[data-theme="dark"] .diary-detail-date {
+    color: #8f91a0;
+}
+
+
+html[data-theme="dark"] .diary-mood-badge {
+    border-color: #514a75;
+
+    background: #353149;
+
+    color: #bbb0ff;
+}
+
+
+html[data-theme="dark"] .diary-action-edit,
+html[data-theme="dark"] .diary-action-list,
+html[data-theme="dark"] .diary-back-button {
+    border-color: #4b475e;
+
+    background:
+        linear-gradient(
+            180deg,
+            #302e3c,
+            #292733
+        );
+
+    color: #b9aff5;
+}
+
+
+html[data-theme="dark"] .diary-back-arrow {
+    border-color: #514b76;
+
+    background: #37324d;
+
+    color: #bcb0ff;
+}
+
+
+/* =========================================================
+   Calendar
+   ========================================================= */
+
+html[data-theme="dark"] #calendar {
+    color: #d8d8e1;
+}
+
+
+html[data-theme="dark"]
+.fc-theme-standard td,
+html[data-theme="dark"]
+.fc-theme-standard th {
+    border-color: #3a3845 !important;
+}
+
+
+html[data-theme="dark"]
+.fc-theme-standard .fc-scrollgrid {
+    border-color: #3c3948 !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-col-header-cell {
+    background: #292832;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-col-header-cell-cushion {
+    color: #b6b7c2;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-daygrid-day {
+    background:
+        rgba(
+            36,
+            35,
+            45,
+            0.90
+        );
+}
+
+
+html[data-theme="dark"]
+.fc .fc-daygrid-day:hover {
+    background: #302e3b;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-daygrid-day-number {
+    color: #c2c3cd;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-day-other .fc-daygrid-day-number {
+    color: #636574;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-day-today {
+    background:
+        #302c46 !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-toolbar-title {
+    color: #efeff4;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-button {
+    border-color: #4b465d !important;
+
+    background:
+        #302d42 !important;
+
+    color:
+        #b7abf9 !important;
+}
+
+
+/* =========================================================
+   Calendar Modal
+   ========================================================= */
+
+html[data-theme="dark"] .modal {
+    background:
+        rgba(
+            6,
+            6,
+            10,
+            0.60
+        );
+}
+
+
+html[data-theme="dark"] .modal-content {
+    border-color: #403d4b;
+
+    background:
+        rgba(
+            38,
+            37,
+            47,
+            0.99
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.42
+        );
+}
+
+
+html[data-theme="dark"] .schedule-modal-title {
+    color: #efeff4;
+}
+
+
+html[data-theme="dark"] .schedule-modal-description {
+    color: #9c9eaa;
+}
+
+
+html[data-theme="dark"] .schedule-modal-close {
+    border-color: #474451;
+
+    background: #2c2a35;
+
+    color: #aaaab7;
+}
+
+
+/* =========================================================
+   Dashboard
+   ========================================================= */
+
+html[data-theme="dark"] .dashboard-hero {
+    border-bottom-color: #373541;
+}
+
+
+html[data-theme="dark"] .dashboard-hero-copy h1 {
+    color: #efeff4;
+}
+
+
+html[data-theme="dark"] .dashboard-hero-copy p {
+    color: #a2a4b0;
+}
+
+
+html[data-theme="dark"] .hero-note {
+    background:
+        linear-gradient(
+            145deg,
+            #34304c,
+            #40385f
+        );
+
+    box-shadow:
+        0 15px 36px
+        rgba(
+            0,
+            0,
+            0,
+            0.20
+        );
+}
+
+
+html[data-theme="dark"] .hero-note strong {
+    color: #e1dfeb;
+}
+
+
+html[data-theme="dark"] .dashboard-row {
+    border-bottom-color: #393742;
+}
+
+
+html[data-theme="dark"] .dashboard-row strong {
+    color: #e0e0e8;
+}
+
+
+html[data-theme="dark"] .dashboard-row small {
+    color: #858794;
+}
+
+
+html[data-theme="dark"] .panel-header h2 {
+    color: #eeeeF3;
+}
+
+
+html[data-theme="dark"] .dashboard-diary-card {
+    border-color: #3b3947;
+
+    background: #25242e;
+}
+
+
+html[data-theme="dark"] .dashboard-diary-card strong {
+    color: #e7e6ee;
+}
+
+
+html[data-theme="dark"] .dashboard-diary-card p {
+    color: #999ba7;
+}
+
+
+/* =========================================================
+   Live Clock
+   ========================================================= */
+
+html[data-theme="dark"] .header-live-clock {
+    border-color: #403c51;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(44, 42, 57, 0.95),
+            rgba(51, 47, 70, 0.92)
+        );
+
+    box-shadow:
+        0 8px 22px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+}
+
+
+html[data-theme="dark"] .live-clock-icon {
+    border-color: #554d7d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #383252,
+            #463d6c
+        );
+}
+
+
+html[data-theme="dark"] .live-clock-time {
+    color: #f0eff5;
+}
+
+
+html[data-theme="dark"] .live-clock-date {
+    color: #9a9cab;
+}
+
+
+/* =========================================================
+   Theme Toggle
+   ========================================================= */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border:
+        1px solid #dfddea;
+
+    border-radius:
+        12px;
+
+    background:
+        #ffffff;
+
+    color:
+        #6b5dda;
+
+    cursor:
+        pointer;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 6px 16px
+        rgba(
+            78,
+            71,
+            120,
+            0.06
+        );
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.theme-toggle:hover {
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #cec7ff;
+
+    background:
+        #f3f0ff;
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            89,
+            76,
+            180,
+            0.12
+        );
+}
+
+
+.theme-toggle:active {
+    transform:
+        translateY(1px)
+        scale(0.96);
+}
+
+
+html[data-theme="dark"] .theme-toggle {
+    border-color: #4b465c;
+
+    background: #302d3c;
+
+    color: #ffda83;
+}
+
+
+html[data-theme="dark"] .theme-toggle:hover {
+    border-color: #665c8d;
+
+    background: #393448;
+}
+
+
+/* =========================================================
+   Flash
+   ========================================================= */
+
+html[data-theme="dark"] .flash-message {
+    border-color: #544b7d;
+
+    background: #312d47;
+
+    color: #c1b6ff;
+}
+/* =========================================================
+   Dark Theme Toggle
+   ========================================================= */
+
+html[data-theme="dark"]
+.theme-toggle {
+
+    border-color:
+        #504a68;
+
+    background:
+        linear-gradient(
+            180deg,
+            #343140,
+            #292733
+        );
+
+    color:
+        #ffd978;
+
+    box-shadow:
+        0 7px 18px
+        rgba(
+            0,
+            0,
+            0,
+            0.20
+        );
+}
+
+
+html[data-theme="dark"]
+.theme-toggle:hover {
+
+    border-color:
+        #6a6093;
+
+    background:
+        #3b374c;
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+}
+/* =========================================================
+   Dark Mode - Calendar Final Fix
+   ========================================================= */
+
+
+/* 달력 전체 카드 */
+
+html[data-theme="dark"]
+.calendar-card {
+    border-color:
+        #3d394b;
+
+    background:
+        linear-gradient(
+            145deg,
+            #25242f,
+            #211f2b
+        );
+
+    box-shadow:
+        0 16px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+}
+
+
+/* FullCalendar 전체 배경 */
+
+html[data-theme="dark"]
+#calendar {
+    background:
+        transparent;
+
+    color:
+        #d8d8e2;
+}
+
+
+/* FullCalendar 최상위 */
+
+html[data-theme="dark"]
+.fc {
+    color:
+        #d8d8e2;
+}
+
+
+/* =========================================================
+   달력 상단 Toolbar
+   ========================================================= */
+
+html[data-theme="dark"]
+.fc .fc-toolbar {
+    padding:
+        4px 2px 16px;
+
+    border-bottom:
+        1px solid #3a3747;
+}
+
+
+/* 2026년 10월 */
+
+html[data-theme="dark"]
+.fc .fc-toolbar-title {
+    color:
+        #f0eff7 !important;
+
+    font-weight:
+        800;
+
+    text-shadow:
+        none;
+}
+
+
+/* Today / 좌우 버튼 */
+
+html[data-theme="dark"]
+.fc .fc-button {
+    border:
+        1px solid #4d4764 !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #343043,
+            #2b2937
+        ) !important;
+
+    color:
+        #bdb1ff !important;
+
+    box-shadow:
+        0 5px 12px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        ) !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-button:hover {
+    border-color:
+        #6b6094 !important;
+
+    background:
+        #3b364e !important;
+
+    color:
+        #d1c8ff !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-today-button:disabled {
+    opacity:
+        0.55;
+}
+
+
+/* =========================================================
+   Calendar Grid 전체
+   ========================================================= */
+
+html[data-theme="dark"]
+.fc-theme-standard
+.fc-scrollgrid {
+    overflow:
+        hidden;
+
+    border:
+        1px solid #454150 !important;
+
+    border-radius:
+        14px;
+
+    background:
+        #292832;
+}
+
+
+/* 요일 Header */
+
+html[data-theme="dark"]
+.fc .fc-col-header-cell {
+    border-color:
+        #403d4b !important;
+
+    background:
+        #24232d !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-col-header-cell-cushion {
+    color:
+        #c4c3cf !important;
+}
+
+
+/* 일요일 */
+
+html[data-theme="dark"]
+.fc .fc-day-sun
+.fc-col-header-cell-cushion {
+    color:
+        #df8f9a !important;
+}
+
+
+/* 토요일 */
+
+html[data-theme="dark"]
+.fc .fc-day-sat
+.fc-col-header-cell-cushion {
+    color:
+        #8fa5ed !important;
+}
+
+
+/* =========================================================
+   날짜 Cell
+   ========================================================= */
+
+html[data-theme="dark"]
+.fc .fc-daygrid-day {
+    border-color:
+        #3c3946 !important;
+
+    background:
+        #2d2c36 !important;
+
+    transition:
+        background
+        0.15s ease;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-daygrid-day:hover {
+    background:
+        #343240 !important;
+}
+
+
+/* 날짜 숫자 */
+
+html[data-theme="dark"]
+.fc .fc-daygrid-day-number {
+    color:
+        #d8d8e2 !important;
+
+    font-weight:
+        650;
+}
+
+
+/* 이전달 / 다음달 날짜 */
+
+html[data-theme="dark"]
+.fc .fc-day-other {
+    background:
+        #282731 !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-day-other
+.fc-daygrid-day-number {
+    color:
+        #666875 !important;
+
+    opacity:
+        0.62;
+}
+
+
+/* 오늘 날짜 */
+
+html[data-theme="dark"]
+.fc .fc-day-today {
+    background:
+        #37324e !important;
+}
+
+
+html[data-theme="dark"]
+.fc .fc-day-today
+.fc-daygrid-day-number {
+    background:
+        linear-gradient(
+            135deg,
+            #8978f2,
+            #6e5de4
+        ) !important;
+
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        0 5px 12px
+        rgba(
+            112,
+            93,
+            225,
+            0.26
+        );
+}
+
+
+/* =========================================================
+   일정 Event
+   ========================================================= */
+
+html[data-theme="dark"]
+.fc .fc-daygrid-event {
+    border:
+        1px solid
+        rgba(
+            184,
+            170,
+            255,
+            0.18
+        ) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8c79ef,
+            #725fe1
+        ) !important;
+
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        0 5px 14px
+        rgba(
+            109,
+            87,
+            220,
+            0.24
+        );
+}
+
+
+html[data-theme="dark"]
+.fc .fc-event-title,
+html[data-theme="dark"]
+.fc .fc-event-time {
+    color:
+        #ffffff !important;
+}
+
+
+/* =========================================================
+   더 보기
+   ========================================================= */
+
+html[data-theme="dark"]
+.fc .fc-daygrid-more-link {
+    color:
+        #b9afff !important;
+
+    font-weight:
+        700;
+}
+/* =========================================================
+   Dark - Important Diary
+   ========================================================= */
+
+html[data-theme="dark"]
+.diary-important-filter {
+    border-color: #494557;
+
+    background:
+        linear-gradient(
+            180deg,
+            #302e3b,
+            #292732
+        );
+
+    color: #bbb1f5;
+}
+
+
+html[data-theme="dark"]
+.diary-important-filter.active {
+    border-color: #75663c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b3525,
+            #332f24
+        );
+
+    color: #e4c66d;
+}
+
+
+html[data-theme="dark"]
+.diary-important-badge {
+    border-color: #73633b;
+
+    background:
+        #393323;
+
+    color: #dfc46c;
+}
+
+
+html[data-theme="dark"]
+.diary-important-button {
+    border-color: #4a4658;
+
+    background:
+        linear-gradient(
+            180deg,
+            #302e3b,
+            #292732
+        );
+
+    color: #aaa8b5;
+}
+
+
+html[data-theme="dark"]
+.diary-important-button.active {
+    border-color: #75653d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3c3625,
+            #332f24
+        );
+
+    color: #e4c86f;
+}
+
+
+html[data-theme="dark"]
+.diary-reset-button {
+    border-color: #494654;
+
+    background: #2d2b36;
+
+    color: #b0b0bb;
+}
+/* =========================================================
+   Dark - Important Diary
+   ========================================================= */
+
+html[data-theme="dark"]
+.diary-important-filter,
+html[data-theme="dark"]
+.diary-important-button {
+    border-color:
+        #494557;
+
+    background:
+        linear-gradient(
+            180deg,
+            #302e3b,
+            #292732
+        );
+
+    color:
+        #bbb1f5;
+}
+
+
+html[data-theme="dark"]
+.diary-important-filter.active,
+html[data-theme="dark"]
+.diary-important-button.active {
+    border-color:
+        #75663c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b3525,
+            #332f24
+        );
+
+    color:
+        #e4c66d;
+}
+
+
+html[data-theme="dark"]
+.diary-important-badge {
+    border-color:
+        #73633b;
+
+    background:
+        #393323;
+
+    color:
+        #dfc46c;
+}
+
+
+/* =========================================================
+   Dark - Today's Question
+   ========================================================= */
+
+html[data-theme="dark"]
+.daily-question-card {
+    border-color:
+        #484258;
+
+    background:
+        linear-gradient(
+            135deg,
+            #292733,
+            #302c42
+        );
+}
+
+
+html[data-theme="dark"]
+.daily-question-icon {
+    background:
+        #3d3755;
+
+    color:
+        #bdafff;
+}
+
+
+html[data-theme="dark"]
+.daily-question-content strong {
+    color:
+        #e2e1e9;
+}
+
+
+html[data-theme="dark"]
+.daily-question-button {
+    border-color:
+        #514b70;
+
+    background:
+        #343043;
+
+    color:
+        #bcb0ff;
+}
+
+
+/* =========================================================
+   Dark - Mood Calendar
+   ========================================================= */
+
+html[data-theme="dark"]
+.fc .diary-mood-event.mood-happy {
+    background:
+        #453b69 !important;
+
+    color:
+        #d1c5ff !important;
+}
+
+
+html[data-theme="dark"]
+.fc .diary-mood-event.mood-good {
+    background:
+        #30445d !important;
+
+    color:
+        #a8caf4 !important;
+}
+
+
+html[data-theme="dark"]
+.fc .diary-mood-event.mood-normal {
+    background:
+        #43434c !important;
+
+    color:
+        #d1d1d8 !important;
+}
+
+
+html[data-theme="dark"]
+.fc .diary-mood-event.mood-sad {
+    background:
+        #343c59 !important;
+
+    color:
+        #aebbee !important;
+}
+
+
+html[data-theme="dark"]
+.fc .diary-mood-event.mood-angry {
+    background:
+        #55333b !important;
+
+    color:
+        #f0aab4 !important;
+}
+
+
+/* =========================================================
+   Dark - Day Wrap Up
+   ========================================================= */
+
+html[data-theme="dark"]
+.day-summary-card {
+    border-color:
+        #3c3949;
+
+    background:
+        linear-gradient(
+            135deg,
+            #272630,
+            #2d293d
+        );
+}
+
+
+html[data-theme="dark"]
+.day-summary-heading h2 {
+    color:
+        #ededf3;
+}
+
+
+html[data-theme="dark"]
+.summary-item,
+html[data-theme="dark"]
+.summary-message {
+    border-color:
+        #403d4d;
+
+    background:
+        rgba(32, 31, 41, 0.74);
+}
+
+
+html[data-theme="dark"]
+.summary-item strong {
+    color:
+        #eeeef4;
+}
+
+
+html[data-theme="dark"]
+.summary-message {
+    color:
+        #aaaab6;
+}
+/* =========================================================
+   Dark - Today's Question Modal
+   ========================================================= */
+
+html[data-theme="dark"]
+.daily-question-launcher {
+    border-color:
+        #50496b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #302d3d,
+            #39334f
+        );
+
+    box-shadow:
+        0 16px 36px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+html[data-theme="dark"]
+.daily-question-launcher-icon {
+    background:
+        #453d64;
+
+    color:
+        #c9beff;
+}
+
+
+html[data-theme="dark"]
+.daily-question-launcher-text strong {
+    color:
+        #d3caff;
+}
+
+
+html[data-theme="dark"]
+.daily-question-dialog {
+    border-color:
+        #484456;
+
+    background:
+        #292832;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+html[data-theme="dark"]
+.daily-question-dialog-header {
+    border-color:
+        #44414f;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2d2b38,
+            #342f48
+        );
+}
+
+
+html[data-theme="dark"]
+.daily-question-dialog-header h2 {
+    color:
+        #f1f0f6;
+}
+
+
+html[data-theme="dark"]
+.daily-question-dialog-symbol {
+    background:
+        #433c5e;
+
+    color:
+        #cabeff;
+}
+
+
+html[data-theme="dark"]
+.daily-question-close {
+    border-color:
+        #4d4959;
+
+    background:
+        #34323e;
+
+    color:
+        #b0aebb;
+}
+
+
+html[data-theme="dark"]
+.daily-question-dialog-description {
+    color:
+        #a4a4b1;
+}
+
+
+html[data-theme="dark"]
+.daily-question-main {
+    border-color:
+        #4d4765;
+
+    background:
+        linear-gradient(
+            135deg,
+            #302d3c,
+            #38334c
+        );
+}
+
+
+html[data-theme="dark"]
+.daily-question-main strong {
+    color:
+        #eeeef4;
+}
+
+
+html[data-theme="dark"]
+.daily-question-answer label {
+    color:
+        #d4d3dc;
+}
+
+
+html[data-theme="dark"]
+.daily-question-answer textarea {
+    border-color:
+        #4c4958;
+
+    background:
+        #24232c;
+
+    color:
+        #ededf2;
+}
+
+
+html[data-theme="dark"]
+.question-later-button {
+    border-color:
+        #4b4856;
+
+    background:
+        #34323d;
+
+    color:
+        #b6b5bf;
+}

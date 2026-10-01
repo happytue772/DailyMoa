@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>로그인 - DailyMoa</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/login.css'
+        ) }}"
+    >
+</head>
+
+
+<body class="login-page">
+
+
+    <!-- =====================================================
+         Background Decoration
+         ===================================================== -->
+
+    <div class="login-bg-shape login-bg-shape-one"></div>
+    <div class="login-bg-shape login-bg-shape-two"></div>
+
+    <div class="login-paper-line login-paper-line-one"></div>
+    <div class="login-paper-line login-paper-line-two"></div>
+
+
+    <!-- =====================================================
+         Login
+         ===================================================== -->
+
+    <main class="login-shell">
+
+
+        <section class="login-card">
+
+
+            <!-- Brand -->
+
+            <header class="login-brand">
+
+                <div class="login-logo">
+                    D
+                </div>
+
+
+                <div class="login-brand-copy">
+
+                    <strong>
+                        DailyMoa
+                    </strong>
+
+                    <span>
+                        MY DAILY ARCHIVE
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- Welcome -->
+
+            <div class="login-heading">
+
+                <span class="login-kicker">
+                    WELCOME BACK
+                </span>
+
+                <h1>
+                    오늘도
+                    <em>기록하러 오셨네요.</em>
+                </h1>
+
+                <p>
+                    천천히, 오늘의 하루를 이어서 모아보세요.
+                </p>
+
+            </div>
+
+
+            <!-- Flash -->
+
+            {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                    <div class="login-flash-wrap">
+
+                        {% for message in messages %}
+
+                            <div class="login-flash">
+                                {{ message }}
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+            {% endwith %}
+
+
+            <!-- Form -->
+
+            <form
+                method="POST"
+                class="login-form"
+            >
+
+
+                <!-- Email -->
+
+                <div class="login-field">
+
+                    <label for="email">
+                        이메일
+                    </label>
+
+
+                    <div class="login-input-wrap">
+
+                        <span class="login-input-icon">
+                            @
+                        </span>
+
+
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="login-field">
+
+                    <label for="password">
+                        비밀번호
+                    </label>
+
+
+                    <div class="login-input-wrap">
+
+                        <span class="login-input-icon">
+                            ··
+                        </span>
+
+
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            placeholder="비밀번호를 입력하세요"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            id="passwordToggle"
+                            type="button"
+                            class="login-password-toggle"
+                            aria-label="비밀번호 보기"
+                        >
+                            보기
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+
+                    <span>
+                        로그인
+                    </span>
+
+                    <span class="login-submit-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Register -->
+
+            <footer class="login-footer">
+
+                <span>
+                    DailyMoa가 처음이신가요?
+                </span>
+
+                <a
+                    href="{{ url_for(
+                        'auth.register'
+                    ) }}"
+                >
+                    계정 만들기
+                </a>
+
+            </footer>
+
+
+            <!-- Bottom Quote -->
+
+            <div class="login-note">
+
+                <span>
+                    DAILY NOTE
+                </span>
+
+                <p>
+                    작은 하루도 모이면<br>
+                    나만의 이야기가 됩니다.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         Password Toggle
+         ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const password =
+                    document.getElementById(
+                        "password"
+                    );
+
+
+                const toggle =
+                    document.getElementById(
+                        "passwordToggle"
+                    );
+
+
+                if (
+                    !password
+                    || !toggle
+                ) {
+                    return;
+                }
+
+
+                toggle.addEventListener(
+                    "click",
+                    function () {
+
+                        const hidden =
+                            password.type
+                            === "password";
+
+
+                        password.type =
+                            hidden
+                                ? "text"
+                                : "password";
+
+
+                        toggle.textContent =
+                            hidden
+                                ? "숨김"
+                                : "보기";
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

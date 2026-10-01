@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block title %}
+Calendar - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<!-- Calendar 전용 CSS -->
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/calendar.css'
+    ) }}"
+>
+
+<!-- FullCalendar -->
+<script
+    src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"
+></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="calendar-page">
+
+    <!-- =====================================================
+         Page Header
+         ===================================================== -->
+
+   <section class="page-header calendar-header">
+
+    <div class="page-header-content">
+
+        <span class="page-kicker">
+            PLAN · CALENDAR
+        </span>
+
+        <h1 class="page-title">
+            Calendar
+        </h1>
+
+        <p class="page-description">
+            나의 일정을 한눈에 확인하고 관리해보세요.
+        </p>
+
+    </div>
+
+
+    <!-- 가운데 감성 일러스트 -->
+    <div class="hero-illustration">
+
+        <div class="illustration-shell">
+
+            <div class="calendar-illustration-card">
+
+                <div class="calendar-top-line"></div>
+
+                <div class="calendar-grid">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="calendar-float-pill">
+                today plan
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="page-header-side">
+
+        <button
+            type="button"
+            class="page-header-button"
+            onclick="openScheduleForm()"
+        >
+            + 일정 추가
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- =====================================================
+         Calendar
+         ===================================================== -->
+
+    <section class="calendar-card">
+
+        <div id="calendar"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Schedule Modal
+         일정 추가 / 상세 / 수정 공용
+         ===================================================== -->
+
+    <div
+        id="scheduleModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-content">
+
+
+            <!-- Modal Header -->
+
+            <div class="schedule-modal-header">
+
+                <div>
+
+                    <span class="page-kicker">
+                        DAILYMOA SCHEDULE
+                    </span>
+
+                    <h2
+                        id="scheduleModalTitle"
+                        class="schedule-modal-title"
+                    >
+                        일정 등록
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="schedule-modal-close"
+                    onclick="closeScheduleForm()"
+                    aria-label="닫기"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <p class="schedule-modal-description">
+                일정의 제목과 시간을 입력하고
+                나의 하루를 계획해보세요.
+            </p>
+
+
+            <!-- 제목 -->
+
+            <div class="schedule-form-group">
+
+                <label for="scheduleTitle">
+                    일정 제목
+                </label>
+
+                <input
+                    id="scheduleTitle"
+                    type="text"
+                    placeholder="예: DailyMoa 프로젝트 작업"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- 시작 / 종료 -->
+
+            <div class="schedule-form-row">
+
+                <div class="schedule-form-group">
+
+                    <label for="scheduleStart">
+                        시작 시간
+                    </label>
+
+                    <input
+                        id="scheduleStart"
+                        type="datetime-local"
+                    >
+
+                </div>
+
+
+                <div class="schedule-form-group">
+
+                    <label for="scheduleEnd">
+                        종료 시간
+                    </label>
+
+                    <input
+                        id="scheduleEnd"
+                        type="datetime-local"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- 내용 -->
+
+            <div class="schedule-form-group">
+
+                <label for="scheduleContent">
+                    일정 내용
+                </label>
+
+                <textarea
+                    id="scheduleContent"
+                    rows="6"
+                    placeholder="일정에 대한 내용을 자유롭게 입력해주세요."
+                ></textarea>
+
+            </div>
+
+
+            <!-- =================================================
+                 Buttons
+                 ================================================= -->
+
+            <div class="schedule-modal-actions">
+
+
+                <!-- 등록 시 = 등록
+                     수정 시 = 수정 -->
+
+                <button
+                    type="button"
+                    class="btn"
+                    onclick="saveSchedule()"
+                >
+                    저장
+                </button>
+
+
+                <!-- 기존 일정 클릭 시에만 JS가 hidden 제거 -->
+
+                <button
+                    id="scheduleDeleteButton"
+                    type="button"
+                    class="btn-danger hidden"
+                    onclick="deleteCurrentSchedule()"
+                >
+                    삭제
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn-secondary"
+                    onclick="closeScheduleForm()"
+                >
+                    닫기
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<!-- Calendar 기능 -->
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/calendar.js'
+    ) }}"
+></script>
+
+{% endblock %}

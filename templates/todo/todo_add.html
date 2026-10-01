@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}
+할 일 추가 - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/todo.css'
+    ) }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="todo-form-page">
+
+    <!-- =====================================================
+         Page Header
+         ===================================================== -->
+
+    <section class="todo-form-header">
+
+        <div>
+
+            <span class="page-kicker">
+                PLAN · TODO
+            </span>
+
+            <h1 class="page-title">
+                할 일 추가
+            </h1>
+
+            <p class="page-description">
+                새로운 할 일을 등록하고
+                오늘의 계획을 정리해보세요.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('todo.todo_list') }}"
+            class="todo-back-button"
+        >
+
+            <span class="todo-back-arrow">
+                ←
+            </span>
+
+            <span>
+                할 일 목록으로
+            </span>
+
+        </a>
+
+    </section>
+
+
+    <!-- =====================================================
+         Todo Form
+         ===================================================== -->
+
+    <form
+        method="POST"
+        class="todo-form-card"
+    >
+
+        <!-- 제목 -->
+
+        <div class="todo-form-group">
+
+            <label for="title">
+                제목
+            </label>
+
+            <input
+                id="title"
+                type="text"
+                name="title"
+                placeholder="해야 할 일을 입력해주세요."
+                required
+            >
+
+        </div>
+
+
+        <!-- 내용 -->
+
+        <div class="todo-form-group">
+
+            <label for="content">
+                내용
+            </label>
+
+            <textarea
+                id="content"
+                name="content"
+                placeholder="할 일에 대한 상세 내용을 입력해주세요."
+            ></textarea>
+
+        </div>
+
+
+        <!-- 마감일 / 우선순위 -->
+
+        <div class="todo-form-row">
+
+            <div class="todo-form-group">
+
+                <label for="due_date">
+                    마감일
+                </label>
+
+                <input
+                    id="due_date"
+                    type="date"
+                    name="due_date"
+                >
+
+            </div>
+
+
+            <div class="todo-form-group">
+
+                <label for="priority">
+                    우선순위
+                </label>
+
+                <select
+                    id="priority"
+                    name="priority"
+                >
+
+                    <option value="LOW">
+                        낮음
+                    </option>
+
+                    <option
+                        value="NORMAL"
+                        selected
+                    >
+                        보통
+                    </option>
+
+                    <option value="HIGH">
+                        높음
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- 버튼 -->
+
+        <div class="form-actions">
+
+            <button
+                type="submit"
+                class="todo-save-button"
+            >
+                저장
+            </button>
+
+
+            <a
+                href="{{ url_for('todo.todo_list') }}"
+                class="todo-cancel-button"
+            >
+                취소
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,422 @@
+{% extends "base.html" %}
+
+{% block title %}
+Todo - DailyMoa
+{% endblock %}
+
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/todo.css'
+    ) }}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="todo-page">
+
+
+    <!-- =====================================================
+         Todo Hero
+         ===================================================== -->
+
+    <section class="page-header todo-hero">
+
+        <div class="page-header-content">
+
+            <span class="page-kicker">
+                PLAN · TODO
+            </span>
+
+            <h1 class="page-title">
+                나의 할 일
+            </h1>
+
+            <p class="page-description">
+                해야 할 일을 정리하고,
+                작은 목표부터 하나씩 완료해보세요.
+            </p>
+
+        </div>
+
+
+        <div class="page-header-side">
+
+            <a
+                href="{{ url_for('todo.todo_add') }}"
+                class="page-header-button"
+            >
+                + 할 일 추가
+            </a>
+
+
+            <div class="page-visual">
+
+                <div class="visual-card">
+
+                    <span class="visual-eyebrow">
+                        TODAY'S FOCUS
+                    </span>
+
+                    <strong class="visual-title">
+                        작은 할 일부터<br>
+                        하나씩 끝내보세요.
+                    </strong>
+
+
+                    <div class="visual-pills">
+
+                        <span class="visual-pill">
+                            plan
+                        </span>
+
+                        <span class="visual-pill">
+                            focus
+                        </span>
+
+                        <span class="visual-pill">
+                            done
+                        </span>
+
+                    </div>
+
+
+                    <div class="visual-bars">
+
+                        <span
+                            class="visual-bar visual-bar-82"
+                        ></span>
+
+                        <span
+                            class="visual-bar visual-bar-58"
+                        ></span>
+
+                        <span
+                            class="visual-bar visual-bar-73"
+                        ></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         검색 / 필터
+         ===================================================== -->
+
+    <form
+        method="GET"
+        class="todo-filter-bar"
+    >
+
+        <input
+            type="search"
+            name="q"
+            value="{{ keyword or '' }}"
+            placeholder="할 일 검색..."
+        >
+
+
+        <select name="status">
+
+            <option
+                value="all"
+                {% if status == "all" %}
+                selected
+                {% endif %}
+            >
+                전체 상태
+            </option>
+
+
+            <option
+                value="active"
+                {% if status == "active" %}
+                selected
+                {% endif %}
+            >
+                진행중
+            </option>
+
+
+            <option
+                value="completed"
+                {% if status == "completed" %}
+                selected
+                {% endif %}
+            >
+                완료
+            </option>
+
+        </select>
+
+
+        <select name="priority">
+
+            <option
+                value="all"
+                {% if priority == "all" %}
+                selected
+                {% endif %}
+            >
+                전체 우선순위
+            </option>
+
+
+            <option
+                value="HIGH"
+                {% if priority == "HIGH" %}
+                selected
+                {% endif %}
+            >
+                HIGH
+            </option>
+
+
+            <option
+                value="NORMAL"
+                {% if priority == "NORMAL" %}
+                selected
+                {% endif %}
+            >
+                NORMAL
+            </option>
+
+
+            <option
+                value="LOW"
+                {% if priority == "LOW" %}
+                selected
+                {% endif %}
+            >
+                LOW
+            </option>
+
+        </select>
+
+
+        <div class="todo-filter-actions">
+
+            <button
+                type="submit"
+                class="todo-search-button"
+            >
+                검색
+            </button>
+
+
+            <a
+                href="{{ url_for('todo.todo_list') }}"
+                class="todo-reset-button"
+            >
+                초기화
+            </a>
+
+        </div>
+
+    </form>
+
+
+    <!-- =====================================================
+         Todo 목록
+         ===================================================== -->
+
+    <section class="todo-list">
+
+        {% for todo in todos %}
+
+        <article
+            class="
+                todo-card
+                {% if todo.completed %}
+                todo-completed
+                {% endif %}
+            "
+        >
+
+            <div class="todo-card-content">
+
+
+                <!-- 제목 -->
+
+                <div class="todo-title-row">
+
+                    <span class="todo-status-icon">
+
+                        {% if todo.completed %}
+                            ✓
+                        {% else %}
+                            □
+                        {% endif %}
+
+                    </span>
+
+
+                    <h2 class="todo-title">
+                        {{ todo.title }}
+                    </h2>
+
+                </div>
+
+
+                <!-- 내용 -->
+
+                <p class="todo-description">
+                    {{ todo.content or "등록된 내용이 없습니다." }}
+                </p>
+
+
+                <!-- 메타 정보 -->
+
+                <div class="todo-meta">
+
+                    <span>
+
+                        우선순위:
+
+                        <strong>
+                            {{ todo.priority }}
+                        </strong>
+
+                    </span>
+
+
+                    <span>
+
+                        마감:
+
+                        {% if todo.due_date %}
+
+                            {{ todo.due_date }}
+
+                        {% else %}
+
+                            없음
+
+                        {% endif %}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 Todo 버튼
+                 ================================================= -->
+
+            <div class="todo-actions">
+
+
+                <!-- 완료 -->
+
+                <form
+                    method="POST"
+                    action="{{ url_for(
+                        'todo.todo_complete',
+                        todo_id=todo.id
+                    ) }}"
+                >
+
+                    <button
+                        type="submit"
+                        class="
+                            todo-action-button
+                            todo-complete-button
+                        "
+                    >
+
+                        {% if todo.completed %}
+                            되돌리기
+                        {% else %}
+                            완료
+                        {% endif %}
+
+                    </button>
+
+                </form>
+
+
+                <!-- 수정 -->
+
+                <a
+                    href="{{ url_for(
+                        'todo.todo_edit',
+                        todo_id=todo.id
+                    ) }}"
+                    class="
+                        todo-action-button
+                        todo-edit-button
+                    "
+                >
+                    수정
+                </a>
+
+
+                <!-- 삭제 -->
+
+                <form
+                    method="POST"
+                    action="{{ url_for(
+                        'todo.todo_delete',
+                        todo_id=todo.id
+                    ) }}"
+                    onsubmit="
+                        return confirm(
+                            '이 할 일을 삭제하시겠습니까?'
+                        );
+                    "
+                >
+
+                    <button
+                        type="submit"
+                        class="
+                            todo-action-button
+                            todo-delete-button
+                        "
+                    >
+                        삭제
+                    </button>
+
+                </form>
+
+            </div>
+
+        </article>
+
+
+        {% else %}
+
+        <div class="todo-empty">
+
+            <strong>
+                아직 등록된 할 일이 없습니다.
+            </strong>
+
+            <span>
+                새로운 할 일을 추가해보세요.
+            </span>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+</div>
+
+{% endblock %}
