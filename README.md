@@ -1,8 +1,8 @@
-1. 프로젝트 소개
+## 📌 프로젝트 소개
 
 **DailyMoa**는 할 일, 일정, 감정, 일기를 하나의 흐름으로 관리할 수 있도록 만든 **Flask 기반 개인 라이프 아카이빙 웹 서비스**입니다. 사용자가 하루를 `계획 → 일정 관리 → 감정 기록 → 일기 작성 → 회고`의 흐름으로 관리할 수 있도록 설계했으며, 단순한 Todo 또는 Diary 기능을 넘어서 여러 기록 기능을 하나의 서비스 안에서 연결하는 것을 목표로 했습니다.
 
-2. 기술 스택
+### 🛠 기술 스택
 
 - **Language**: Python, JavaScript, HTML5, CSS3
 - **Backend**: Flask, Flask-Login, Flask-SQLAlchemy
@@ -14,7 +14,7 @@
 - **Development Environment**: Windows, WSL Ubuntu, VS Code
 - **Version Control**: Git, GitHub
 
-3. 주요 기능
+### ✨ 주요 기능
 
 - 회원가입, 로그인, 로그아웃
 - Flask-Login 기반 사용자 인증 및 로그인 상태 관리
@@ -32,7 +32,7 @@
 - `localStorage`를 활용한 Dark Mode 상태 유지
 - 반응형 UI 구성
 
-  4. 데이터베이스 구조
+### 🗃 데이터베이스 구조
 
 DailyMoa는 **SQLite**를 사용하며, SQLAlchemy ORM을 통해 데이터를 관리합니다.
 
@@ -46,7 +46,7 @@ DailyMoa는 **SQLite**를 사용하며, SQLAlchemy ORM을 통해 데이터를 �
 
 각 주요 데이터는 `user_id`를 기준으로 현재 로그인한 사용자와 연결되어 있으며, 다른 사용자의 개인 데이터가 조회되지 않도록 구성했습니다.
 
-5. 프로젝트 구조
+### 🏗 프로젝트 구조
 
 ```text
 DailyMoa/
